@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import Portfolio from './PortfolioComponent'
+import CompanyContainer from './CompanyContainer'
+import Portfolio from './PortfolioContainer'
 
 class Home extends Component {
 
     render() {
         return (
            <div>
-            <Portfolio />
+            <CompanyContainer />
+            {/*<Portfolio />*/}
            </div>
         )
     }

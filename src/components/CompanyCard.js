@@ -4,7 +4,9 @@ const CompanyCard = (props) => {
     const {c} = props
     return (
       <div>
-        <h1>{c.name}</h1>
+        <h2>{c.name}</h2>
+        <h4>{c.industry}</h4>
+        <p>Location: {c.location.city},{c.location.state}<br/>{c.location.country}</p>
       </div>
     )
 }
