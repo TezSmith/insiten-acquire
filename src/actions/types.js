@@ -1,0 +1,4 @@
+export const ADD_COMPANY = "ADD_COMPANY"
+export const REMOVE_COMPANY = "ADD_COMPANY"
+export const LOGIN_ACTION = "LOGIN_ACTION"
+export const LOGOUT_ACTION = "LOGOUT_ACTION"
