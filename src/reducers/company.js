@@ -1,7 +1,9 @@
 import { ADD_COMPANY, REMOVE_COMPANY } from '../actions/types'
+import COMPANIES from '../companies'
+
 
 const companyState = {
-    companies: []
+    companies: COMPANIES
 }
 
 const companyReducer = (state = companyState, action) => {
