@@ -7,11 +7,12 @@ function makeCompany(i) {
         id: i,
         name: Faker.company.companyName(),
         industry: "Education",
-        contacts: [
-            { name: Faker.name.firstName(), title: Faker.name.jobTitle(), email: Faker.internet.email() },
-            { name: Faker.name.firstName(), title: Faker.name.jobTitle(), email: Faker.internet.email() }
-        ],
-        location: {
+        ceo: { 
+            firstname: Faker.name.firstName(), 
+            lastname: Faker.name.lastName(), 
+            title: Faker.name.jobTitle() 
+        },
+        hq: {
           street: Faker.address.streetAddress(),
             city: Faker.address.city(),
            state: Faker.address.state(),

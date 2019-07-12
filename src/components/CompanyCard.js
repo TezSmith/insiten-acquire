@@ -6,9 +6,9 @@ const CompanyCard = (props) => {
     const {c, showCompany, addCompany, removeCompany, portfolio } = props
     return (
       <div>
-        <h2>{c.name}</h2>
+        <h2>{c.firstname}</h2>
         <h4>{c.industry}</h4>
-        <p>{c.location.city}, {c.location.state}</p>
+        <p>{c.hq.city}, {c.hq.state}</p>
         <button onClick={() => showCompany(c)}>See Details</button>
         {portfolio.includes(c) !== true ? <button onClick={() => addCompany(c)}>Add To Portfolio</button>
          : <button onClick={() => removeCompany(c)}>Remove From Portfolio</button>
