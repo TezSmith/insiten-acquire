@@ -5,10 +5,11 @@ import CompanyCard from './CompanyCard'
 class Portfolio extends Component {
 
   render() {
-    const { companies } = this.props.companies
+    const { portfolio } = this.props.company
     return (
       <div>
-        {companies.map(c => <CompanyCard c={c} idx={c.id} key={c.id} />)}
+        <h1> Portfolio </h1>
+        {portfolio.map((c,i) => <CompanyCard c={c} key={i} />)}
       </div>
     )
   }
@@ -16,9 +17,11 @@ class Portfolio extends Component {
 }
 
 const mapStateToProps = (state) => {
+  const { company } = state
   return {
-    companies: { ...state.company }
+    company: company
   }
 }
+
 
 export default connect(mapStateToProps)(Portfolio)

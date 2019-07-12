@@ -28,7 +28,7 @@ function makeCompany(i) {
     }
 }
 
-for (var i = 1; i < 25; i++) {
+for (var i = 1; i < 5; i++) {
     COMPANIES.push(makeCompany(i))
 }
 

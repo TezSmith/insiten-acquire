@@ -2,32 +2,15 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CompanyCard from './CompanyCard'
 import CompanyDetails from './CompanyDetails'
-import { throwStatement } from '@babel/types';
 
 class CompanyContainer extends Component {
 
-    state = {
-        company: ''
-    }
-
-    showCard = (c) => {
-        this.setState({
-            company: c
-        })
-    }
-
-    removeCard = () => {
-       this.setState({
-           company: ''
-       })
-    }
-
     render() {
-        const { companies } = this.props.companies
+        const { companies, details } = this.props
         return (
             <div>
-                {this.state.company ? <CompanyDetails c={this.state.company} back={this.removeCard} />
-                    : companies.map(c => <CompanyCard c={c} idx={c.id} key={c.id} show={this.showCard} />)
+                { details ? <CompanyDetails back={this.hideDetails} />
+                    : companies.map((c,i) => <CompanyCard c={c} key={i} />)
                }
             </div>
         )
@@ -36,8 +19,10 @@ class CompanyContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
+    const { companies, details } = state.company
     return {
-        companies: { ...state.company }
+        companies: companies,
+        details: details
     }
 }
 

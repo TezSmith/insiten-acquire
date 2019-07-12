@@ -1,13 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 const CompanyDetails = (props) => {
-    const { c, back } = props
+    const { details, back } = props
     return (
         <div>
-            <h1>{c.name}</h1>
+            <h1>{details.name}</h1>
             <button onClick={back}> Back </button>
         </div>
     )
 }
 
-export default CompanyDetails
+const mapStateToProps = (state) => {
+    const { details } = state.company
+    return {
+        details: details
+    }
+}
+
+export default connect(mapStateToProps)(CompanyDetails)
