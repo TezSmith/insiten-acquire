@@ -1,4 +1,4 @@
-import { ADD_COMPANY, REMOVE_COMPANY, SHOW_COMPANY } from '../actions/types'
+import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS } from '../actions/types'
 import COMPANIES from '../companies'
 
 
@@ -23,7 +23,7 @@ const companyReducer = (state = companyState, action) => {
                 companies: [...state.companies, action.remove],
                 portfolio: [...state.portfolio.filter(p => p !== action.remove)]
             }
-        case SHOW_COMPANY:
+        case SHOW_DETAILS:
             return { ...state, details: action.show }
         default:
             return state

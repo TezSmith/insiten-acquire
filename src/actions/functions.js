@@ -1,4 +1,4 @@
-import { LOGIN_ACTION, LOGOUT_ACTION, ADD_COMPANY, SHOW_COMPANY, REMOVE_COMPANY } from './types'
+import { LOGIN_ACTION, LOGOUT_ACTION, ADD_COMPANY, SHOW_DETAILS, REMOVE_COMPANY} from './types'
 
 //Logs User In
 export function login(data) {
@@ -17,10 +17,18 @@ export function addCompany(c) {
   }
 }
 
+export function showPage() {
+  
+}
+
+export function createCompany(values) {
+  console.log("Form Values:", values)
+}
+
 // Show Company Details
 export function showCompany(c) {
    return dispatch => {
-     dispatch({type: SHOW_COMPANY, show: c })
+     dispatch({type: SHOW_DETAILS, show: c })
    }
 }
 

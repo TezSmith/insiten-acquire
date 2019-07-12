@@ -3,12 +3,21 @@ import { connect } from 'react-redux'
 import CompanyContainer from './CompanyContainer'
 import Portfolio from './PortfolioContainer'
 import CompanyDetails from './CompanyDetails'
+import NewCompanyForm from './NewCompanyForm'
 
 class Home extends Component {
 
-    showContent = () => {
-        return this.props.page === 'portfolio' ? <Portfolio /> : <CompanyContainer /> 
-    }
+    // Will use when all views are properly set up
+    //  showContent = () => {
+    //   switch (this.props.page) {
+    //     case 'portfolio':
+    //       return <Portfolio />
+    //     case 'form':
+    //       return <NewCompanyForm />
+    //     default:
+    //       return <CompanyContainer />
+    //   }
+    // }
 
     render() {
         const { details } = this.props
