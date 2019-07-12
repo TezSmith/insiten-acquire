@@ -5,7 +5,7 @@ import { createCompany } from '../actions/functions'
 
 
 const Form = () => {
-  const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields } = useForm(handleCreate);
+  const { values, handleChange, handleDynamicChange, handleSubmit, handleAdd, handleRemove, fields } = useForm(handleCreate);
 
   function handleCreate() {
     createCompany(values)
@@ -56,48 +56,49 @@ const Form = () => {
             <input className="input" type="type" name="zipcode" onChange={handleChange} required />
           </div>
         </div>
-
-        <h3>Add Company CEO</h3>
-        <div className="field">
-          <label className="label">First Name</label>
-          <div className="control">
-            <input className="input" type="text" name="firstname" onChange={handleChange} required />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Last Name</label>
-          <div className="control">
-            <input className="input" type="text" name="lastname" onChange={handleChange} required />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Contact Email</label>
-          <div className="control">
-            <input className="input" type="email" name="email" onChange={handleChange} required />
-          </div>
-        </div>
-        {/* FINANCIALS SECTION */}
-        <h3>Add Your Company Finances</h3>
-        {fields.map((field, i) => {
+        {/* OWNER SECTION */}
+        <h3>Add Your Company's Owners</h3>
+        {fields.map((field, idx) => {
           return (
-            <div key={`${field}-${i}`}>
+            <div key={`${field}-${idx}`}>
               <input
                 type="text"
-                name="year"
-                defaultValue={field.value}
+                name="owner.name"
+                value={field.value}
                 placeholder="Enter text"
-                onChange={(e) => handleFinanceChange(i, e)}
+                onChange={(e) => handleDynamicChange(idx,e)}
+              />
+              <button type="button" onClick={handleAdd}>
+                Add Owner
+            </button>
+              <button type="button" onClick={(e) => handleRemove(idx, e)}>
+                Remove Owner
+            </button>
+            </div>
+          )
+        })}
+        {/* FINANCIALS SECTION */}
+        <h3>Add Your Company Finances</h3>
+        {fields.map((field, idx) => {
+          return (
+            <div key={`${field}-${idx}`}>
+              <input
+                type="text"
+                name="finance.year"
+                value={field.value}
+                placeholder="Enter text"
+                onChange={(e) => handleDynamicChange(idx, e)}
               />
               <button type="button" onClick={handleAdd}>
                 Add Financial Year
             </button>
-              <button type="button" onClick={(e) => handleRemove(i,e)}>
+              <button type="button" onClick={(e) => handleRemove(idx,e)}>
                 Remove Financial Year
             </button>
             </div>
           )
         })}
-          <button type="submit" className="button is-block is-info is-fullwidth">Create Company</button>
+          <button type="submit" className="button is-block is-info is-fullwidth">Login</button>
       </form>
     </div>
   )

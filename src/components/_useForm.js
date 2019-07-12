@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 const useForm = (callback) => {
-  // const initialFinances = [{ rev: '', exp: '', assets: '', lib: '', eq: ''}]
+
   const [values, setValues] = useState({})
-  const [fields, setFields] = useState([{}]);
+  const [fields, setFields] = useState([{ value: '' }]);
 
 
   const handleSubmit = (e) => {
@@ -16,31 +16,39 @@ const useForm = (callback) => {
     setValues(values => ({ ...values, [e.target.name]: e.target.value }))
   }
 
-  const handleFinanceChange = (i, e) => {
+  const handleDynamicChange = (i, e) => {
     e.persist()
-    const finances = [...fields];
-    finances[i][e.target.name] = e.target.value;
-    setValues(values => ({...values, finances}))
+    // {value: Tez}
+    const values = [...fields];
+
+    values[i].value = e.target.value;
+
+    setFields(values);
+
   }
 
   const handleAdd = (e) => {
-    setFields(prevFields => [...prevFields, {}])
+    const values = [...fields];
+    values.push({ value: '' });
+    setFields(values);
   }
 
   const handleRemove = (i) => {
-    const finances = [...fields];
-    finances.splice(i, 1);
-    setFields(finances);
+    const values = [...fields];
+    console.log("These are the values: ",values)
+    values.splice(i, 1);
+    setFields(values);
   }
 
   return {
     handleAdd,
     handleRemove,
     handleChange,
-    handleFinanceChange,
+    handleDynamicChange,
     handleSubmit,
     values,
-    fields
+    fields,
+    setFields
   }
 }
 
