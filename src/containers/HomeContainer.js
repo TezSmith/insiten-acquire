@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter, Route } from 'react-router-dom'
 import CompanyContainer from './CompanyContainer'
 import Portfolio from './PortfolioContainer'
 
@@ -20,11 +21,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-       <CompanyContainer/>
-       <Portfolio/>
+       <Route exact path="/" component={CompanyContainer} />
+       <Route path="/portfolio" component={Portfolio} />
       </div>
     )
   }
 }
 
-export default connect()(Home)
+export default withRouter(connect()(Home))
