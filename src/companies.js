@@ -1,6 +1,7 @@
 import Faker from 'faker'
 
-const COMPANIES = []
+const companies = []
+
 
 function makeCompany(i) {
     return {
@@ -30,7 +31,28 @@ function makeCompany(i) {
 }
 
 for (var i = 1; i < 5; i++) {
-    COMPANIES.push(makeCompany(i))
+    companies.push(makeCompany(i))
 }
 
-export default COMPANIES
+const obj = {
+    id: '',
+    coname: '',
+    industry: '',
+    ceo: {
+        firstname: '',
+        lastname: '',
+        email: ''
+    },
+    hq: {
+        street: '',
+        city: '',
+        state: '',
+        country: '',
+        zipcode: ''
+    },
+    finances: []
+} 
+
+export default companies
+export { obj }
+

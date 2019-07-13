@@ -3,12 +3,12 @@ import useForm from "./useForm";
 import { connect } from 'react-redux'
 import { createCompany } from '../actions/functions'
 
-
 const Form = (props) => {
   const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields } = useForm(handleCreate);
+  const { obj, createCompany } = props
 
   function handleCreate() {
-    props.createCompany(values)
+    createCompany(values)
   }
 
   return (
@@ -17,43 +17,43 @@ const Form = (props) => {
         <div className="field">
           <label className="label">Company Name</label>
           <div className="control">
-            <input className="input" type="text" name="coname" onChange={handleChange} required />
+            <input className="input" type="text" name="coname" defaultValue={obj.coname} onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
           <label className="label">Industry</label>
           <div className="control">
-            <input className="input" type="type" name="industry" onChange={handleChange} required />
+            <input className="input" type="type" name="industry" defaultValue={obj.industry} onChange={handleChange}  required />
           </div>
         </div>
         <div className="field">
           <label className="label"> Street Address</label>
           <div className="control">
-            <input className="input" type="type" name="street" onChange={handleChange} required />
+            <input className="input" type="type" name="street" defaultValue={obj.hq.street} onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
           <label className="label"> City </label>
           <div className="control">
-            <input className="input" type="type" name="city" onChange={handleChange} required />
+            <input className="input" type="type" name="city" defaultValue={obj.hq.city} onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
           <label className="label"> State </label>
           <div className="control">
-            <input className="input" type="type" name="state" onChange={handleChange} required />
+            <input className="input" type="type" name="state" defaultValue={obj.hq.state} onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
           <label className="label">Country</label>
           <div className="control">
-            <input className="input" type="type" name="country" onChange={handleChange} required />
+            <input className="input" type="type" name="country" defaultValue={obj.hq.country} onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
           <label className="label">Zipcode</label>
           <div className="control">
-            <input className="input" type="type" name="zipcode" onChange={handleChange} required />
+            <input className="input" type="type" name="zipcode" defaultValue={obj.hq.zipcode} onChange={handleChange} required />
           </div>
         </div>
 
@@ -61,19 +61,19 @@ const Form = (props) => {
         <div className="field">
           <label className="label">First Name</label>
           <div className="control">
-            <input className="input" type="text" name="firstname" onChange={handleChange} required />
+            <input className="input" type="text" name="firstname" defaultValue={obj.ceo.firstname} onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
           <label className="label">Last Name</label>
           <div className="control">
-            <input className="input" type="text" name="lastname" onChange={handleChange} required />
+            <input className="input" type="text" name="lastname" defaultValue={obj.ceo.lastname} onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
           <label className="label">Contact Email</label>
           <div className="control">
-            <input className="input" type="email" name="email" onChange={handleChange} required />
+            <input className="input" type="email" name="email" defaultValue={obj.ceo.email} onChange={handleChange} required />
           </div>
         </div>
         {/* FINANCIALS SECTION */}
@@ -138,4 +138,11 @@ const Form = (props) => {
   )
 }
 
-export default connect(null, { createCompany })(Form);
+const mapStateToProps = (state) => {
+  const { obj } = state.company
+  return {
+    obj: obj
+  }
+}
+
+export default connect(mapStateToProps, { createCompany })(Form);

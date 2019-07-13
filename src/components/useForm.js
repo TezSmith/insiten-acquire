@@ -1,8 +1,9 @@
 import { useState } from 'react';
+import { obj } from '../companies'
 
 const useForm = (callback) => {
 
-  const [values, setValues] = useState({})
+  const [values, setValues] = useState(obj)
   const [fields, setFields] = useState([{}]);
 
   const handleSubmit = (e) => {
@@ -28,6 +29,7 @@ const useForm = (callback) => {
 
   const handleRemove = (i) => {
     const finances = [...fields];
+    if (finances.length === 1) return null
     finances.splice(i, 1);
     setFields(finances);
   }

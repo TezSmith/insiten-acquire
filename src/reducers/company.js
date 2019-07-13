@@ -1,12 +1,13 @@
-import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY } from '../actions/types'
-import COMPANIES from '../companies'
+import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY, UPDATE_COMPANY } from '../actions/types'
+import companies, {obj} from '../companies'
 
 
 const companyState = {
-    companies: COMPANIES,
+    companies: companies,
     portfolio: [],
     page: '',
-    details: ''
+    details: '',
+    obj: obj
 }
 
 const companyReducer = (state = companyState, action) => {
@@ -24,9 +25,20 @@ const companyReducer = (state = companyState, action) => {
                 portfolio: [...state.portfolio.filter(p => p !== action.remove)]
             }
         case SHOW_DETAILS:
-            return { ...state, details: action.show }
+            return { 
+              ...state, 
+              details: action.show 
+            }
         case CREATE_COMPANY:
-            return { ...state, companies: [...state.companies, action.create]}
+            return { 
+              ...state, 
+              companies: [...state.companies, action.create]
+            } 
+        case UPDATE_COMPANY:
+          return { 
+            ...state, 
+            companies: [...state.companies.map(c => c.id === action.update.id ? action.update : c )] 
+          }
         default:
             return state
     }
