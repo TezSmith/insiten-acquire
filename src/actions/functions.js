@@ -1,4 +1,5 @@
-import { LOGIN_ACTION, LOGOUT_ACTION, ADD_COMPANY, SHOW_DETAILS, REMOVE_COMPANY, CREATE_COMPANY, EDIT_COMPANY, HIDE_DETAILS, UPDATE_COMPANY, DELETE, SHOW_FORM} from './types'
+import { ADD_COMPANY, SHOW_DETAILS, REMOVE_COMPANY, CREATE_COMPANY, CANCEL_EDIT,
+         EDIT_COMPANY, HIDE_DETAILS, UPDATE_COMPANY, DELETE, SHOW_FORM } from './types'
 import companies from '../companies'
 
 // Show New Company Form
@@ -8,9 +9,14 @@ export function showForm() {
   }
 }
 
+export function cancelEdit() {
+  return dispatch => {
+    dispatch({type: CANCEL_EDIT})
+  }
+}
+
 // Creates New Company
 export function createCompany(values) {
-
   return dispatch => {
 
     let id = companies.length + 1
@@ -44,11 +50,10 @@ export function createCompany(values) {
 
     dispatch({type: CREATE_COMPANY, create: obj})
   }
-
-} // end function
+}
 
 // Show Company Details
-export function showCompany(c) {
+export function showDetails(c) {
    return dispatch => {
      dispatch({type: SHOW_DETAILS, show: c })
    }
@@ -56,7 +61,7 @@ export function showCompany(c) {
 
 
 // Hide Company Details
-export function hideCompany(c) {
+export function hideDetails(c) {
    return dispatch => {
      dispatch({type: HIDE_DETAILS })
    }
@@ -69,14 +74,14 @@ export function editCompany(c) {
   }
 }
 
-// Updates Company Details
+// Update Company Details
 export function updateCompany(values) {
    return dispatch => {
      dispatch({type: UPDATE_COMPANY, update: values})
    }
 }
 
-// Adds Company to Portfolio
+// Add Company to Portfolio
 export function addCompany(c) {
   return dispatch => {
     dispatch({ type: ADD_COMPANY, add: c })
@@ -84,14 +89,14 @@ export function addCompany(c) {
 }
 
 
-// Removes Company from Portfolio
+// Remove Company from Portfolio
 export function removeCompany(c) {
   return dispatch => {
     dispatch({ type: REMOVE_COMPANY, remove: c })
   }
 }
 
-// Deletes Company from site
+// Delete Company from site
 export function deleteCompany(c){
   return dispatch => {
     dispatch({ type: DELETE, delete: c })

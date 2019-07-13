@@ -1,4 +1,5 @@
-import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY, EDIT_COMPANY, UPDATE_COMPANY, HIDE_DETAILS, DELETE, SHOW_FORM} from '../actions/types'
+import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY, CANCEL_EDIT,
+        EDIT_COMPANY, UPDATE_COMPANY, HIDE_DETAILS, DELETE, SHOW_FORM } from '../actions/types'
 import companies, {obj} from '../companies'
 
 
@@ -49,6 +50,11 @@ const companyReducer = (state = companyState, action) => {
             return {
               ...state,
               edit: [action.edit]
+            }
+        case CANCEL_EDIT:
+            return {
+              ...state,
+              edit: []
             }
         case UPDATE_COMPANY:
           return {

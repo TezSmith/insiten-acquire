@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import CompanyCard from './CompanyCard'
+import CompanyCard from '../components/CompanyCard'
 import CompanyDetailsContainer from './CompanyDetailsContainer'
 
 

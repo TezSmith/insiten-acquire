@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import CompanyCard from './CompanyCard'
+import CompanyCard from '../components/CompanyCard'
 import CompanyDetailsContainer from './CompanyDetailsContainer'
-import NewCompanyForm from './NewCompanyForm'
+import NewCompanyForm from '../components/NewCompanyForm'
 import { showForm } from '../actions/functions'
 
 class CompanyContainer extends Component {
@@ -20,7 +20,7 @@ class CompanyContainer extends Component {
 
             <div>
               <h1> All Companies </h1>
-              { form ? <button onClick={showForm}> Go Back</button>  : <button onClick={showForm}>Create New Company</button>}
+              { form ? <button onClick={showForm}> Go Back </button> : <button onClick={showForm}>Create New Company</button>}
               { form ? <NewCompanyForm/> : showContent()}
             </div>
         )
