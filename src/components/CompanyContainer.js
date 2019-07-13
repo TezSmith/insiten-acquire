@@ -1,37 +1,27 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CompanyCard from './CompanyCard'
-import CompanyDetails from './CompanyDetails'
-import EditCompanyForm from './NewCompanyForm'
+import CompanyDetailsContainer from './CompanyDetailsContainer'
+import NewCompanyForm from './NewCompanyForm'
+import { showForm } from '../actions/functions'
 
 class CompanyContainer extends Component {
 
-    state = {
-       form: false,
-       details: []
-    }
-
-    showForm = () => {
-			this.setState({
-				form: !this.state.form
-			})
-    }
-
     render() {
 
-        const { companies, details } = this.props
+        const { companies, details, showForm, form } = this.props
 
         const showContent = () => {
            return details.length === 0 ? companies.map((c,i) =>
-              <CompanyCard c={c} key={i} />) : <CompanyDetails />
+              <CompanyCard c={c} key={i} />) : <CompanyDetailsContainer />
         }
 
         return (
 
             <div>
               <h1> All Companies </h1>
-              <button onClick={this.showForm}>Create New Company</button>
-              {showContent()}
+              { form ? <button onClick={showForm}> Go Back</button>  : <button onClick={showForm}>Create New Company</button>}
+              { form ? <NewCompanyForm/> : showContent()}
             </div>
         )
     }
@@ -39,11 +29,12 @@ class CompanyContainer extends Component {
 }
 
 const mapStateToProps = (state) => {
-    const { companies, details } = state.company
+    const { companies, details, form } = state.company
     return {
       companies: companies,
-      details: details
+      details: details,
+      form: form
     }
 }
 
-export default connect(mapStateToProps)(CompanyContainer)
+export default connect(mapStateToProps, { showForm })(CompanyContainer)

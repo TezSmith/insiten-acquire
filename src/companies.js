@@ -2,7 +2,6 @@ import Faker from 'faker'
 
 const companies = []
 
-
 function makeCompany(i) {
     return {
         id: i,
@@ -21,11 +20,11 @@ function makeCompany(i) {
          zipcode: Faker.address.zipCode()
         },
         finances: [
-            { year: 2014, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() },
-            { year: 2015, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() },
-            { year: 2016, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() },
-            { year: 2017, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() },
-            { year: 2018, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() }
+            { year: 2014, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), lib: Faker.finance.amount(), eq: Faker.finance.amount() },
+            { year: 2015, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), lib: Faker.finance.amount(), eq: Faker.finance.amount() },
+            { year: 2016, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), lib: Faker.finance.amount(), eq: Faker.finance.amount() },
+            { year: 2017, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), lib: Faker.finance.amount(), eq: Faker.finance.amount() },
+            { year: 2018, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), lib: Faker.finance.amount(), eq: Faker.finance.amount() }
         ]
     }
 }
@@ -51,8 +50,7 @@ const obj = {
         zipcode: ''
     },
     finances: []
-} 
+}
 
 export default companies
 export { obj }
-

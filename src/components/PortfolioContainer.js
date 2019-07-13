@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CompanyCard from './CompanyCard'
-import CompanyDetails from './CompanyDetails'
+import CompanyDetailsContainer from './CompanyDetailsContainer'
 
 
 class Portfolio extends Component {
@@ -11,7 +11,7 @@ class Portfolio extends Component {
 
     const showContent = () => {
        return details.length === 0 ? portfolio.map((c,i) =>
-          <CompanyCard c={c} key={i} />) : <CompanyDetails />
+          <CompanyCard c={c} key={i} />) : <CompanyDetailsContainer />
     }
 
     return (

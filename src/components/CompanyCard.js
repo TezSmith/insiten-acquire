@@ -14,7 +14,7 @@ const CompanyCard = (props) => {
       <div>
         <h2>{c.coname}</h2>
         <h4>{c.industry}</h4>
-        <p>{c.hq.city}, {c.hq.state}</p>
+        <p> {c.hq.city}, {c.hq.state}</p>
         <button onClick={() => showCompany(c)}>See Details</button>
         {showButton()}
       </div>

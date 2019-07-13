@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { createCompany } from '../actions/functions'
 
 const Form = (props) => {
-  const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields } = useForm(handleCreate);
-  const { obj, createCompany } = props
+  const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields, obj } = useForm(handleCreate);
+  const { createCompany, back } = props
 
   function handleCreate() {
     createCompany(values)
@@ -134,15 +134,9 @@ const Form = (props) => {
         })}
           <button type="submit" className="button is-block is-info is-fullwidth">Create Company</button>
       </form>
+
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  const { obj } = state.company
-  return {
-    obj: obj
-  }
-}
-
-export default connect(mapStateToProps, { createCompany })(Form);
+export default connect(null,{ createCompany })(Form);

@@ -1,10 +1,12 @@
 import { useState } from 'react';
-import { obj } from '../companies'
 
-const useForm = (callback) => {
+const useForm = (props, callback) => {
 
-  const [values, setValues] = useState({})
-  const [fields, setFields] = useState([{}]);
+  let ed = props.edit[0]
+  let initFin = ed.finances
+
+  const [values, setValues] = useState(ed)
+  const [fields, setFields] = useState(initFin);
 
   const handleSubmit = (e) => {
     if (e) e.preventDefault()
@@ -42,8 +44,9 @@ const useForm = (callback) => {
     handleSubmit,
     values,
     fields,
-    obj
+    ed
   }
 }
+
 
 export default useForm
