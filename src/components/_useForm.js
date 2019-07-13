@@ -18,7 +18,7 @@ const useForm = (callback) => {
 
   const handleDynamicChange = (i, e) => {
     e.persist()
-    // {value: Tez}
+ 
     const values = [...fields];
 
     values[i].value = e.target.value;
