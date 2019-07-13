@@ -1,15 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CompanyCard from './CompanyCard'
+import CompanyDetails from './CompanyDetails'
+
 
 class Portfolio extends Component {
 
   render() {
-    const { portfolio } = this.props.company
+    const { portfolio, details } = this.props.company
+
+    const showContent = () => {
+       return details.length === 0 ? portfolio.map((c,i) =>
+          <CompanyCard c={c} key={i} />) : <CompanyDetails />
+    }
+
     return (
       <div>
         <h1> Portfolio </h1>
-        {portfolio.map((c,i) => <CompanyCard c={c} key={i} />)}
+        {showContent()}
       </div>
     )
   }
@@ -17,9 +25,10 @@ class Portfolio extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { company } = state
+  const { company, details } = state
   return {
-    company: company
+    company: company,
+    details: details
   }
 }
 

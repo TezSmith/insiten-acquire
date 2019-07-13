@@ -1,21 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { hideCompany } from '../actions/functions'
 
 const CompanyDetails = (props) => {
 
-    const { details, back } = props
-    const showContent = () => {
-    
-    }
+   const { hide, hideCompany } = props
+   const c = props.details[0]
 
     return (
         <div>
-            <h1>{details.coname}</h1>
-            <h3>{details.industry}</h3>
-            <p> Location: {details.hq}</p>
-            <p> Founder: {details.ceo.firstname}</p>
-
-            <button onClick={back}> Back </button>
+            <h3>{c.id}</h3>
+            <button onClick={hideCompany}> Back </button>
         </div>
     )
 }
@@ -27,4 +22,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(CompanyDetails)
+export default connect(mapStateToProps, {hideCompany})(CompanyDetails)

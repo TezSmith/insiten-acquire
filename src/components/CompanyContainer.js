@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CompanyCard from './CompanyCard'
 import CompanyDetails from './CompanyDetails'
-import NewCompanyForm from './NewCompanyForm'
-import {showPage} from '../actions/functions'
+import EditCompanyForm from './NewCompanyForm'
 
 class CompanyContainer extends Component {
 
     state = {
-       form: false
+       form: false,
+       details: []
     }
 
     showForm = () => {
@@ -18,15 +18,20 @@ class CompanyContainer extends Component {
     }
 
     render() {
-        const { companies, details } = this.props
-        return (
-            <div>
-              <button onClick={this.showForm}>Create New Company</button>
-						  {this.state.form ? <NewCompanyForm /> : companies.map((c, i) => <CompanyCard c={c} key={i} />)}
 
-                { /*details ? <CompanyDetails back={this.hideDetails} />
-                    : companies.map((c,i) => <CompanyCard c={c} key={i} />)
-        */}
+        const { companies, details } = this.props
+
+        const showContent = () => {
+           return details.length === 0 ? companies.map((c,i) =>
+              <CompanyCard c={c} key={i} />) : <CompanyDetails />
+        }
+
+        return (
+
+            <div>
+              <h1> All Companies </h1>
+              <button onClick={this.showForm}>Create New Company</button>
+              {showContent()}
             </div>
         )
     }
@@ -36,13 +41,9 @@ class CompanyContainer extends Component {
 const mapStateToProps = (state) => {
     const { companies, details } = state.company
     return {
-        companies: companies,
-        details: details
+      companies: companies,
+      details: details
     }
 }
 
-const mapDispatchToProps = {
-    showPage
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CompanyContainer)
+export default connect(mapStateToProps)(CompanyContainer)

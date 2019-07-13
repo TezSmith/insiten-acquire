@@ -3,6 +3,7 @@ export const SHOW_PAGE = "SHOW_PAGE"
 
 //Manages what company's detail page to show
 export const SHOW_DETAILS =  "SHOW_DETAILS"
+export const HIDE = "HIDE"
 
 //These actions manage the portfolio
 export const ADD_COMPANY = "ADD_COMPANY"

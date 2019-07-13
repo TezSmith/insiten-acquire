@@ -1,4 +1,4 @@
-import { LOGIN_ACTION, LOGOUT_ACTION, ADD_COMPANY, SHOW_DETAILS, REMOVE_COMPANY, CREATE_COMPANY} from './types'
+import { LOGIN_ACTION, LOGOUT_ACTION, ADD_COMPANY, SHOW_DETAILS, REMOVE_COMPANY, CREATE_COMPANY, HIDE} from './types'
 import companies from '../companies'
 
 //Logs User In
@@ -18,9 +18,6 @@ export function addCompany(c) {
   }
 }
 
-export function showPage() {
-
-}
 
 export function createCompany(values) {
 
@@ -67,6 +64,16 @@ export function showCompany(c) {
      dispatch({type: SHOW_DETAILS, show: c })
    }
 }
+
+
+// Hide Company Details
+export function hideCompany(c) {
+   return dispatch => {
+     dispatch({type: HIDE })
+   }
+}
+
+
 
 // Removes Company from Portfolio
 export function removeCompany(c) {
