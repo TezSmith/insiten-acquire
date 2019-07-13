@@ -6,7 +6,7 @@ const CompanyCard = (props) => {
     const {c, showCompany, addCompany, removeCompany, portfolio } = props
     return (
       <div>
-        <h2>{c.firstname}</h2>
+        <h2>{c.coname}</h2>
         <h4>{c.industry}</h4>
         <p>{c.hq.city}, {c.hq.state}</p>
         <button onClick={() => showCompany(c)}>See Details</button>

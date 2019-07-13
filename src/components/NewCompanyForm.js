@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { createCompany } from '../actions/functions'
 
 
-const Form = () => {
+const Form = (props) => {
   const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields } = useForm(handleCreate);
 
   function handleCreate() {
-    createCompany(values)
+    props.createCompany(values)
   }
 
   return (
@@ -17,7 +17,7 @@ const Form = () => {
         <div className="field">
           <label className="label">Company Name</label>
           <div className="control">
-            <input className="input" type="text" name="name" onChange={handleChange} required />
+            <input className="input" type="text" name="coname" onChange={handleChange} required />
           </div>
         </div>
         <div className="field">
@@ -77,7 +77,7 @@ const Form = () => {
           </div>
         </div>
         {/* FINANCIALS SECTION */}
-        <h3>Add Your Company Finances</h3>
+        <h3> Finances</h3>
         {fields.map((field, i) => {
           return (
             <div key={`${field}-${i}`}>
@@ -85,7 +85,42 @@ const Form = () => {
                 type="text"
                 name="year"
                 defaultValue={field.value}
-                placeholder="Enter text"
+                placeholder="Financial Year"
+                onChange={(e) => handleFinanceChange(i, e)}
+              />
+              <input
+                type="text"
+                name="rev"
+                defaultValue={field.value}
+                placeholder="Revenue"
+                onChange={(e) => handleFinanceChange(i, e)}
+              />
+              <input
+                type="text"
+                name="exp"
+                defaultValue={field.value}
+                placeholder="Expenses"
+                onChange={(e) => handleFinanceChange(i, e)}
+              />
+              <input
+                type="text"
+                name="assets"
+                defaultValue={field.value}
+                placeholder="Assets Valuation"
+                onChange={(e) => handleFinanceChange(i, e)}
+              />
+              <input
+                type="text"
+                name="lib"
+                defaultValue={field.value}
+                placeholder="Liabilities Amount"
+                onChange={(e) => handleFinanceChange(i, e)}
+              />
+              <input
+                type="text"
+                name="lib"
+                defaultValue={field.value}
+                placeholder="Equity Valuation"
                 onChange={(e) => handleFinanceChange(i, e)}
               />
               <button type="button" onClick={handleAdd}>
@@ -103,9 +138,4 @@ const Form = () => {
   )
 }
 
-const mapDispatchToProps = {
-  createCompany
-}
-
-
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(null, { createCompany })(Form);

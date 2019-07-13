@@ -5,7 +5,7 @@ const CompanyDetails = (props) => {
     const { details, back } = props
     return (
         <div>
-            <h1>{details.firstname}</h1>
+            <h1>{details.coname}</h1>
             <button onClick={back}> Back </button>
         </div>
     )

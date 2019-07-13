@@ -1,4 +1,4 @@
-import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS } from '../actions/types'
+import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY } from '../actions/types'
 import COMPANIES from '../companies'
 
 
@@ -25,6 +25,8 @@ const companyReducer = (state = companyState, action) => {
             }
         case SHOW_DETAILS:
             return { ...state, details: action.show }
+        case CREATE_COMPANY:
+            return { ...state, companies: [...state.companies, action.create]}
         default:
             return state
     }

@@ -19,7 +19,7 @@ function makeCompany(i) {
          country: Faker.address.country(),
          zipcode: Faker.address.zipCode()
         },
-        finance: [
+        finances: [
             { year: 2014, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() },
             { year: 2015, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() },
             { year: 2016, rev: Faker.finance.amount(), exp: Faker.finance.amount(), assets: Faker.finance.amount(), liabilities: Faker.finance.amount(), eq: Faker.finance.amount() },

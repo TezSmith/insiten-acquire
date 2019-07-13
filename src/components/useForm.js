@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
 const useForm = (callback) => {
-  // const initialFinances = [{ rev: '', exp: '', assets: '', lib: '', eq: ''}]
+
   const [values, setValues] = useState({})
   const [fields, setFields] = useState([{}]);
-
 
   const handleSubmit = (e) => {
     if (e) e.preventDefault()
