@@ -19,11 +19,17 @@ class CompanyContainer extends Component {
 
         return (
 
-            <div>
-              <h1> All Companies </h1>
-              { form ? <button onClick={showForm}> Go Back </button> : <button onClick={showForm}>Create New Company</button>}
-              { form ? <NewCompanyForm/> : showContent()}
+          <div>
+            <h1> All Companies </h1>
+            { form ? <button onClick={showForm}> Go Back </button> : <button onClick={showForm}>Create New Company</button>}
+            <div className="py-5 bg-light">
+              <div className="container">
+                <div className="row">
+                  { form ? <NewCompanyForm/> : showContent()}
+                </div>
+              </div>
             </div>
+          </div>
         )
     }
 

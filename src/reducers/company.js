@@ -1,6 +1,6 @@
 import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY, CANCEL_EDIT,
         EDIT_COMPANY, UPDATE_COMPANY, HIDE_DETAILS, DELETE, SHOW_FORM } from '../actions/types'
-import companies, {obj} from '../companies'
+import companies from '../companies'
 
 
 const companyState = {

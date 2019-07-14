@@ -27,6 +27,12 @@ const Form = (props) => {
           </div>
         </div>
         <div className="field">
+          <label className="label">Company Image Url</label>
+          <div className="control">
+            <input className="input" type="type" name="photo" defaultValue={ed.photo} onChange={handleChange}  required />
+          </div>
+        </div>
+        <div className="field">
           <label className="label"> Street Address</label>
           <div className="control">
             <input className="input" type="type" name="street" defaultValue={ed.hq.street} onChange={handleChange} required />

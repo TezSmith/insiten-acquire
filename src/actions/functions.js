@@ -25,6 +25,7 @@ export function createCompany(values) {
       id: id,
       coname: values.coname,
       industry: values.industry,
+      photo: values.photo,
       ceo: {
           firstname: values.firstname,
           lastname: values.lastname,

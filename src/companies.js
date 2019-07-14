@@ -6,6 +6,7 @@ function makeCompany(i) {
     return {
         id: i,
         coname: Faker.company.companyName(),
+        photo: Faker.random.image(),
         industry: "Education",
         ceo: {
             firstname: Faker.name.firstName(),
