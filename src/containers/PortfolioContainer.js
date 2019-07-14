@@ -28,7 +28,7 @@ class Portfolio extends Component {
       <div>
          <h1> Portfolio </h1>
           <div className="py-5 bg-light">
-            <div className="container">
+            <div className="">
               <div className="row">
                 {showContent()}
               </div>

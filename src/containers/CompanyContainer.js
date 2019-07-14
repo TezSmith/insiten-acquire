@@ -23,14 +23,14 @@ class CompanyContainer extends Component {
           <section className="jumbotron text-center">
              <div className="container">
                <h1 className="jumbotron-heading">Browse Companies</h1>
-               <p className="lead text-muted"> Check out our collcton of companies and see which venture makes sense for you. Click the details
+               <p className="lead text-muted"> Check out our collecton of companies and see which venture makes sense for you. Click the details
                to learn more, and if you're interested in tracking click add to Portfolio. Or if you'd like to add to our listings, click the button below! </p>
                { form ? <button onClick={showForm} className="btn btn-primary my-2"> Go Back </button> : <button onClick={showForm} className="btn btn-primary my-2">Create New Company</button>}
              </div>
           </section>
             <div className="py-5 bg-light">
               <div className="container">
-                <div className="row">
+                <div className="row align-center">
                   { form ? <NewCompanyForm/> : showContent()}
                 </div>
               </div>
