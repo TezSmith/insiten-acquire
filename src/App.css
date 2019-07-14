@@ -2,12 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background: url('atlanta.jpg') no-repeat center center;
   background-size: cover;
@@ -20,18 +14,27 @@
   color: white;
 }
 
-.card-cont {
-  display: inline-flex;
+nav > a {
+  padding-right: 10px;
 }
 
-.card {
-  /* display: inline-block; */
+.jumbotron {
+  margin: 0;
+}
+
+.card-cont {
+  display: inline-flex;
 }
 
 .details {
   width: 100%;
   background-color: #000;
   color: #fff;
+  padding-bottom: 10px;
+}
+
+.bg-light {
+  height: 100%;
 }
 
 .about {
