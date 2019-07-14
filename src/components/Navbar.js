@@ -7,7 +7,8 @@ const Navbar = (props) => {
   return (
     <div>
      <Link to='/'> Home </Link>
-     <Link to='/Portfolio'> Portfolio </Link>
+     <Link to='/companies'> Companies </Link>
+     <Link to='/portfolio'> Portfolio </Link>
     </div>
   )
 }

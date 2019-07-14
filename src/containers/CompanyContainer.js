@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter, Route } from 'react-router-dom'
 import CompanyCard from '../components/CompanyCard'
 import CompanyDetailsContainer from './CompanyDetailsContainer'
 import NewCompanyForm from '../components/NewCompanyForm'
@@ -28,7 +29,7 @@ class CompanyContainer extends Component {
 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     const { companies, details, form } = state.company
     return {
       companies: companies,
@@ -37,4 +38,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { showForm })(CompanyContainer)
+export default withRouter(connect(mapStateToProps, { showForm })(CompanyContainer))

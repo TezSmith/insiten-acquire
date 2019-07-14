@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.css';
+import { withRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './containers/HomeContainer'
+import Welcome from './components/Welcome'
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      <header className="App-header">
-         Welcome to Acquirey!
-      </header>
-      <Home />
+      <Route exact path='/' component={Welcome}/>
+      <Home/>
     </div>
   );
 }
 
-export default App;
+export default withRouter(App)

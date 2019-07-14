@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+// import { withRouter } from 'react-router-dom'
 import { showDetails, addCompany, removeCompany } from '../actions/functions'
 
 const CompanyCard = (props) => {
-    const {c, showDetails, addCompany, removeCompany, portfolio } = props
-
+    const {c, showDetails, addCompany, removeCompany, portfolio, match } = props
     const showButton = () => {
       return portfolio.includes(c) === true ? <button onClick={() => removeCompany(c)}>Remove From Portfolio</button>
        : <button onClick={() => addCompany(c)}>Add To Portfolio</button>
@@ -22,7 +22,7 @@ const CompanyCard = (props) => {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   const { portfolio } = state.company
   return {
     portfolio: portfolio

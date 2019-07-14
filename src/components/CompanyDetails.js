@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { hideDetails, editCompany, deleteCompany } from '../actions/functions'
 import EditCompanyForm from './EditCompanyForm'
 
@@ -19,7 +20,8 @@ const CompanyDetails = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+
   const { details } = state.company
   return {
     details: details
@@ -32,4 +34,4 @@ const mapDispatchToProps = {
   deleteCompany
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CompanyDetails)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CompanyDetails))

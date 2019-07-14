@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter, Link } from 'react-router-dom'
 import CompanyCard from '../components/CompanyCard'
 import CompanyDetailsContainer from './CompanyDetailsContainer'
 
@@ -10,6 +11,14 @@ class Portfolio extends Component {
     const { portfolio, details } = this.props.company
 
     const showContent = () => {
+      if (portfolio.length === 0) {
+        return (
+               <div>
+                  <h3> Start tracking companies! </h3>
+                  <Link to='/'> Track New Companies </Link>
+               </div>
+        )
+      }
        return details.length === 0 ? portfolio.map((c,i) =>
           <CompanyCard c={c} key={i} />) : <CompanyDetailsContainer />
     }
@@ -33,4 +42,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(Portfolio)
+export default withRouter(connect(mapStateToProps)(Portfolio))

@@ -8,7 +8,8 @@ const companyState = {
     portfolio: [],
     details: [],
     edit: [],
-    form: false
+    form: false,
+    welcome: true
 }
 
 const companyReducer = (state = companyState, action) => {
@@ -68,6 +69,11 @@ const companyReducer = (state = companyState, action) => {
             companies: state.companies.filter((c) => c.id !== action.delete.id),
             details: []
           }
+        // case WELCOME:
+        // return {
+        //   ...state,
+        //   welcome: !state.welcome
+        // }
         default:
             return state
     }
