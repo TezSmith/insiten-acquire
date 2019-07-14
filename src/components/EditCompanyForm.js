@@ -14,72 +14,58 @@ const Form = (props) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="field">
+
+        <div className="field form-group">
           <label className="label">Company Name</label>
-          <div className="control">
-            <input className="input" type="text" name="coname" defaultValue={ed.coname} onChange={handleChange} required />
-          </div>
+            <input className="form-control" type="text" name="coname" defaultValue={ed.coname} onChange={handleChange} required />
         </div>
-        <div className="field">
+        <div className="field form-group">
           <label className="label">Industry</label>
-          <div className="control">
-            <input className="input" type="type" name="industry" defaultValue={ed.industry} onChange={handleChange}  required />
-          </div>
+            <input className="form-control" type="type" name="industry" defaultValue={ed.industry} onChange={handleChange}  required />
         </div>
-        <div className="field">
+        <div className="field form-group">
           <label className="label">Company Image Url</label>
-          <div className="control">
-            <input className="input" type="type" name="photo" defaultValue={ed.photo} onChange={handleChange}  required />
-          </div>
+            <input className="form-control" type="type" name="photo" defaultValue={ed.photo} onChange={handleChange}  required />
         </div>
-        <div className="field">
+        <div className="field form-group">
           <label className="label"> Street Address</label>
-          <div className="control">
-            <input className="input" type="type" name="street" defaultValue={ed.hq.street} onChange={handleChange} required />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label"> City </label>
-          <div className="control">
-            <input className="input" type="type" name="city" defaultValue={ed.hq.city} onChange={handleChange} required />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label"> State </label>
-          <div className="control">
-            <input className="input" type="type" name="state" defaultValue={ed.hq.state} onChange={handleChange} required />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Country</label>
-          <div className="control">
-            <input className="input" type="type" name="country" defaultValue={ed.hq.country} onChange={handleChange} required />
-          </div>
-        </div>
-        <div className="field">
-          <label className="label">Zipcode</label>
-          <div className="control">
-            <input className="input" type="type" name="zipcode" defaultValue={ed.hq.zipcode} onChange={handleChange} required />
-          </div>
+            <input className="form-control" type="type" name="street" defaultValue={ed.hq.street} onChange={handleChange} required />
         </div>
 
+        <div className="form-row">
+         <div className="field form-group col-md-6">
+           <label className="label"> City </label>
+             <input className="form-control" type="type" name="city" defaultValue={ed.hq.city} onChange={handleChange} required />
+         </div>
+         <div className="field form-group col-md-4">
+           <label className="label"> State </label>
+             <input className="form-control" type="type" name="state" defaultValue={ed.hq.state} onChange={handleChange} required />
+         </div>
+         <div className="field form-group col-md-2">
+           <label className="label">Zipcode</label>
+             <input className="form-control" type="type" name="zipcode" defaultValue={ed.hq.zipcode} onChange={handleChange} required />
+         </div>
+       </div>
+
+       <div className="field form-group">
+         <label className="label">Country</label>
+           <input className="form-control" type="type" name="country" defaultValue={ed.hq.country} onChange={handleChange} required />
+       </div>
+
         <h3>Add Company CEO</h3>
-        <div className="field">
-          <label className="label">First Name</label>
-          <div className="control">
-            <input className="input" type="text" name="firstname" defaultValue={ed.ceo.firstname} onChange={handleChange} required />
+
+        <div className="form-row">
+          <div className="field form-group col-md-4">
+            <label className="label">First Name</label>
+              <input className="form-control" type="text" name="firstname" defaultValue={ed.ceo.firstname} onChange={handleChange} required />
           </div>
-        </div>
-        <div className="field">
-          <label className="label">Last Name</label>
-          <div className="control">
-            <input className="input" type="text" name="lastname" defaultValue={ed.ceo.lastname} onChange={handleChange} required />
+          <div className="field form-group col-md-4">
+            <label className="label">Last Name</label>
+              <input className="form-control" type="text" name="lastname" defaultValue={ed.ceo.lastname} onChange={handleChange} required />
           </div>
-        </div>
-        <div className="field">
-          <label className="label">Contact Email</label>
-          <div className="control">
-            <input className="input" type="email" name="email" defaultValue={ed.ceo.email} onChange={handleChange} required />
+          <div className="field form-group col-md-4">
+            <label className="label">Contact Email</label>
+              <input className="form-control" type="email" name="email" defaultValue={ed.ceo.email} onChange={handleChange} required />
           </div>
         </div>
         {/* FINANCIALS SECTION */}
@@ -87,58 +73,80 @@ const Form = (props) => {
         {fields.map((field, i) => {
           return (
             <div key={`${field}-${i}`}>
+            <div className="form-row mt-4">
+              <div className="field form-group col-md-2">
               <input
+                className="form-control"
                 type="text"
                 name="year"
                 defaultValue={field.year}
                 placeholder="Financial Year"
                 onChange={(e) => handleFinanceChange(i, e)}
               />
+              </div>
+              <div className="field form-group col-md-2">
               <input
+                className="form-control"
                 type="text"
                 name="rev"
                 defaultValue={field.rev}
                 placeholder="Revenue"
                 onChange={(e) => handleFinanceChange(i, e)}
               />
+              </div>
+              <div className="field form-group col-md-2">
               <input
+                className="form-control"
                 type="text"
                 name="exp"
                 defaultValue={field.exp}
                 placeholder="Expenses"
                 onChange={(e) => handleFinanceChange(i, e)}
               />
+              </div>
+              <div className="field form-group col-md-2">
               <input
+                className="form-control"
                 type="text"
                 name="assets"
                 defaultValue={field.assets}
                 placeholder="Assets Valuation"
                 onChange={(e) => handleFinanceChange(i, e)}
               />
+              </div>
+              <div className="field form-group col-md-2">
               <input
+                className="form-control"
                 type="text"
                 name="lib"
                 defaultValue={field.lib}
                 placeholder="Liabilities Amount"
                 onChange={(e) => handleFinanceChange(i, e)}
               />
+              </div>
+              <div className="field form-group col-md-2">
               <input
+                className="form-control"
                 type="text"
                 name="eq"
                 defaultValue={field.eq}
                 placeholder="Equity Valuation"
                 onChange={(e) => handleFinanceChange(i, e)}
               />
-              <button type="button" onClick={handleAdd}>
+              </div>
+              <button className="btn btn-primary mx-2" type="button" onClick={handleAdd}>
                 Add Financial Year
             </button>
-              <button type="button" onClick={(e) => handleRemove(i,e)}>
+              <button className="btn btn-primary" type="button" onClick={(e) => handleRemove(i,e)}>
                 Remove Financial Year
             </button>
             </div>
+          </div>
           )
         })}
-          <button type="submit" className="button is-block is-info is-fullwidth">Edit Company</button>
+        <div className="mt-4">
+          <button type="submit" className="btn btn-primary">Edit Company</button>
+        </div>
       </form>
     </div>
   )

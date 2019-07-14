@@ -20,8 +20,14 @@ class CompanyContainer extends Component {
         return (
 
           <div>
-            <h1> All Companies </h1>
-            { form ? <button onClick={showForm}> Go Back </button> : <button onClick={showForm}>Create New Company</button>}
+          <section className="jumbotron text-center">
+             <div className="container">
+               <h1 className="jumbotron-heading">Browse Companies</h1>
+               <p className="lead text-muted"> Check out our collcton of companies and see which venture makes sense for you. Click the details
+               to learn more, and if you're interested in tracking click add to Portfolio. Or if you'd like to add to our listings, click the button below! </p>
+               { form ? <button onClick={showForm} className="btn btn-primary my-2"> Go Back </button> : <button onClick={showForm} className="btn btn-primary my-2">Create New Company</button>}
+             </div>
+          </section>
             <div className="py-5 bg-light">
               <div className="container">
                 <div className="row">
