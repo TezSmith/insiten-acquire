@@ -96,6 +96,15 @@ const getCompanyDetails = (state, ownProps) => {
   }
 }
 
+const getEditDetails = (state, ownProps) => {
+  let id = parseInt(ownProps.match.params.id)
+  if (id) {
+    return state.company.companies.filter(c => c.id === id)
+  } else {
+    return state.edit
+  }
+}
+
 
 export default companyReducer
-export { getSearchResults, getCompanyDetails }
+export { getSearchResults, getCompanyDetails, getEditDetails }

@@ -8,6 +8,7 @@ import CompanyDetailsContainer from './CompanyDetailsContainer'
 class Portfolio extends Component {
 
   render() {
+
     const { portfolio, details } = this.props.company
 
     const showContent = () => {
@@ -19,10 +20,8 @@ class Portfolio extends Component {
                </div>
         )
       }
-       return details.length === 0 ? portfolio.map((c,i) =>
-          <CompanyCard c={c} key={i} />) : <CompanyDetailsContainer />
+       return portfolio.map((c,i) => <CompanyCard c={c} key={i} />)
     }
-
 
     return (
       <div>

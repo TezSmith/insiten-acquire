@@ -71,7 +71,6 @@ const Form = (props) => {
           </div>
         </div>
 
-        {/* FINANCIALS SECTION */}
         <h3> Add Financial Summary </h3>
         {fields.map((field, i) => {
           return (

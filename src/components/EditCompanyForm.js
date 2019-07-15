@@ -1,18 +1,23 @@
 import React from 'react'
 import useEditForm from "./useEditForm";
 import { connect } from 'react-redux'
+import { withRouter  } from 'react-router-dom'
 import { updateCompany } from '../actions/functions'
+import { getEditDetails } from '../reducers/company';
 
-const Form = (props) => {
+
+const EditForm = (props) => {
   const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields, ed } = useEditForm(props, handleCreate);
   const { updateCompany } = props
 
   function handleCreate() {
     updateCompany(values)
+    props.history.push(`/companies/${values.id}`)
   }
 
   return (
-    <div>
+    <div className="container mb-4">
+     <div className="row">
       <h2 className="m-4"> Edit {ed.coname}'s Information </h2>
       <form onSubmit={handleSubmit}>
 
@@ -35,7 +40,6 @@ const Form = (props) => {
           <option value="approved">Approval</option>
           <option value="declined">Declined</option>
         </select>
-
 
         <div className="field form-group">
             <input className="form-control" type="type" name="street" defaultValue={ed.hq.street} onChange={handleChange} placeholder="Street Address" required />
@@ -72,7 +76,6 @@ const Form = (props) => {
           </div>
         </div>
 
-        {/* FINANCIALS SECTION */}
         <h3> Finances</h3>
         {fields.map((field, i) => {
           return (
@@ -153,14 +156,15 @@ const Form = (props) => {
         </div>
       </form>
     </div>
+   </div>
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   const { edit } = state.company
   return {
-    edit: edit
+    edit: getEditDetails(state, ownProps)
   }
 }
 
-export default connect(mapStateToProps, { updateCompany })(Form);
+export default withRouter(connect(mapStateToProps, { updateCompany })(EditForm));

@@ -1,30 +1,28 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter, Link } from 'react-router-dom'
 import EditCompanyForm from '../components/EditCompanyForm'
 import CompanyDetails from '../components/CompanyDetails'
 import { cancelEdit } from '../actions/functions'
+import { getEditDetails } from '../reducers/company';
+
 
 const CompanyDetailsCont = (props) => {
 
      const { edit, cancelEdit } = props
 
-     const showContent = () => {
-       return edit.length === 0 ? <CompanyDetails /> : <EditCompanyForm/>
-     }
-
     return (
-        <div>
-           {edit.length > 0 ? <button className="btn btn-secondary" onClick={cancelEdit}> Go Back to Detail </button> : null}
-           {showContent()}
-        </div>
+      <div className="bg-light">
+        <CompanyDetails />
+      </div>
     )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
     const { edit } = state.company
     return {
-        edit: edit
+        edit: getEditDetails(state,ownProps)
     }
 }
 
-export default connect(mapStateToProps, {cancelEdit})(CompanyDetailsCont)
+export default withRouter(connect(mapStateToProps, {cancelEdit})(CompanyDetailsCont))

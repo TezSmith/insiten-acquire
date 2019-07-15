@@ -55,10 +55,10 @@ export function createCompany(values) {
     } else {
       finances.map((f) => obj.finances.push(f))
     }
-
     dispatch({type: CREATE_COMPANY, create: obj})
   }
 }
+
 
 // Show Company Details
 export function showDetails(c) {
@@ -86,7 +86,9 @@ export function editCompany(c) {
 export function updateCompany(values) {
    return dispatch => {
      dispatch({type: UPDATE_COMPANY, update: values})
-   }
+
+     // window.history.pushState('/')
+  }
 }
 
 // Add Company to Portfolio

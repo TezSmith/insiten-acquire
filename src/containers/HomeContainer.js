@@ -5,28 +5,18 @@ import CompanyContainer from './CompanyContainer'
 import Portfolio from './PortfolioContainer'
 import CompanyCard from '../components/CompanyCard'
 import CompanyDetails from '../components/CompanyDetails'
+import EditForm from '../components/EditCompanyForm'
 
 
 class Home extends Component {
-
-    // Will use when all views are properly set up
-    //  showContent = () => {
-    //   switch (this.props.page) {
-    //     case 'portfolio':
-    //       return <Portfolio />
-    //     case 'form':
-    //       return <NewCompanyForm />
-    //     default:
-    //       return <CompanyContainer />
-    //   }
-    // }
 
   render() {
     return (
       <div>
       <Switch>
-        <Route exact path="/companies/" component={CompanyContainer} />
-        <Route path="/companies/:id" component={CompanyDetails} /> // component={CompanyCard}
+        <Route exact path="/companies" component={CompanyContainer} />
+        <Route exact path="/companies/:id" component={CompanyDetails} />
+        <Route path="/companies/:id/edit" component={EditForm} />
         <Route path="/portfolio" component={Portfolio} />
       </Switch>
       </div>
