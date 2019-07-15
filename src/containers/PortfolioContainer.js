@@ -13,7 +13,7 @@ class Portfolio extends Component {
     const showContent = () => {
       if (portfolio.length === 0) {
         return (
-               <div className="container">
+               <div className="container full">
                   <h3> Start tracking companies! </h3>
                   <Link to='/companies'> Track New Companies </Link>
                </div>
@@ -32,7 +32,7 @@ class Portfolio extends Component {
             <p className="lead text-muted"> Your collection of prospective investments </p>
           </div>
         </div>
-          <div className="py-5 bg-light">
+          <div className="py-5 bg-light full">
             <div className="container">
               <div className="row">
                 {showContent()}

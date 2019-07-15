@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Doughnut, Bar } from 'react-chartjs-2'
 import { hideDetails, addCompany, editCompany, deleteCompany, removeCompany } from '../actions/functions'
+import { getCompanyDetails } from '../reducers/company';
+
 
 const CompanyDetails = (props) => {
 
@@ -240,7 +242,7 @@ const CompanyDetails = (props) => {
 const mapStateToProps = (state, ownProps) => {
   const { details, portfolio } = state.company
   return {
-    details: details,
+    details: getCompanyDetails(details, ownProps),
     portfolio: portfolio
   }
 }

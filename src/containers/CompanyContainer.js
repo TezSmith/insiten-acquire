@@ -14,7 +14,7 @@ class CompanyContainer extends Component {
 
         const { companies, details, showForm, form, search, term } = this.props
 
-        const showContent = () => {
+        const showCards = () => {
            return details.length === 0 ? companies.map((c,i) =>
               <CompanyCard c={c} key={i} /> )
               : <CompanyDetailsContainer />
@@ -26,14 +26,14 @@ class CompanyContainer extends Component {
         return (
 
           <div>
-          <section className="jumbotron text-center general">
+          <div className="jumbotron text-center general">
              <div className="container">
                <h1 className="jumbotron-heading">Browse Companies</h1>
                <p className="lead text-muted"> Check out our collecton of companies and see which venture makes sense for you. Click the details
                to learn more, and if you're interested in tracking click add to Portfolio. Or if you'd like to add to our listings, click the button below! </p>
                { form ? <button onClick={showForm} className="btn btn-secondary my-2"> Go Back </button> : <button onClick={showForm} className="btn btn-primary my-2">Create New Company</button>}
              </div>
-          </section>
+          </div>
             <div className="py-5 bg-light">
               <div className="container">
               <nav className=" navbar-light">
@@ -42,7 +42,7 @@ class CompanyContainer extends Component {
               </form>
               </nav>
                 <div className="row align-center mt-4">
-                  { form ? <NewCompanyForm/> : showContent()}
+                  { form ? <NewCompanyForm/> : showCards()}
                 </div>
               </div>
             </div>

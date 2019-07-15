@@ -13,24 +13,22 @@ const Form = (props) => {
 
   return (
     <div>
+     <h2 className="mb-4"> Add A New Company </h2>
       <form onSubmit={handleSubmit}>
+
         <div className="field form-group">
-          <label className="label">Company Name</label>
-            <input className="form-control" type="text" name="coname" defaultValue={obj.coname} onChange={handleChange} required />
+            <input className="form-control" type="text" name="coname" defaultValue={obj.coname} onChange={handleChange} placeholder="Company Name" required />
         </div>
         <div className="field form-group">
-          <label className="label">Industry</label>
-            <input className="form-control" type="type" name="industry" defaultValue={obj.industry} onChange={handleChange}  required />
+            <input className="form-control" type="type" name="industry" defaultValue={obj.industry} onChange={handleChange} placeholder="Industry"  required />
         </div>
         <div className="field form-group">
-          <label className="label">Company Image Url</label>
           <div className="control">
-            <input className="form-control" type="type" name="photo" defaultValue={obj.photo} onChange={handleChange}  required />
+            <input className="form-control" type="type" name="photo" defaultValue={obj.photo} onChange={handleChange} placeholder="Company Image" required />
           </div>
         </div>
 
-
-        <select className="field custom-select" name="status" onChange={handleChange}>
+        <select className="field custom-select mb-3" name="status" onChange={handleChange}>
           <option >Select Acquistion Status</option>
           <option value="researching">Researching</option>
           <option value="pending">Pending Approval</option>
@@ -38,50 +36,43 @@ const Form = (props) => {
           <option value="declined">Declined</option>
         </select>
 
-
         <div className="field form-group">
-          <label className="label"> Street Address</label>
-            <input className="form-control" type="type" name="street" defaultValue={obj.hq.street} onChange={handleChange} required />
+            <input className="form-control" type="type" name="street" defaultValue={obj.hq.street} onChange={handleChange} placeholder="Street Address" required />
         </div>
 
          <div className="form-row">
           <div className="field form-group col-md-6">
-            <label className="label"> City </label>
-              <input className="form-control" type="type" name="city" defaultValue={obj.hq.city} onChange={handleChange} required />
+              <input className="form-control" type="type" name="city" defaultValue={obj.hq.city} onChange={handleChange} placeholder="City" required />
           </div>
+
           <div className="field form-group col-md-4">
-            <label className="label"> State </label>
-              <input className="form-control" type="type" name="state" defaultValue={obj.hq.state} onChange={handleChange} required />
+              <input className="form-control" type="type" name="state" defaultValue={obj.hq.state} onChange={handleChange} placeholder="State" required />
           </div>
+
           <div className="field form-group col-md-2">
-            <label className="label">Zipcode</label>
-              <input className="form-control" type="type" name="zipcode" defaultValue={obj.hq.zipcode} onChange={handleChange} required />
+              <input className="form-control" type="type" name="zipcode" defaultValue={obj.hq.zipcode} onChange={handleChange} placeholder="Zipcode" required />
           </div>
         </div>
         <div className="field form-group">
-          <label className="label">Country</label>
-            <input className="form-control" type="type" name="country" defaultValue={obj.hq.country} onChange={handleChange} required />
+            <input className="form-control" type="type" name="country" defaultValue={obj.hq.country} onChange={handleChange} placeholder="Country" required />
         </div>
 
-        <h3>Add Company CEO</h3>
+        <h3 className="pb-2">Add Company CEO</h3>
 
         <div className="form-row">
           <div className="field form-group col-md-4">
-            <label className="label">First Name</label>
-              <input className="form-control" type="text" name="firstname" defaultValue={obj.ceo.firstname} onChange={handleChange} required />
+              <input className="form-control" type="text" name="firstname" defaultValue={obj.ceo.firstname} onChange={handleChange} placeholder="First Name" required />
           </div>
           <div className="field form-group col-md-4">
-            <label className="label">Last Name</label>
-              <input className="form-control" type="text" name="lastname" defaultValue={obj.ceo.lastname} onChange={handleChange} required />
+              <input className="form-control" type="text" name="lastname" defaultValue={obj.ceo.lastname} onChange={handleChange} placeholder="Last Name" required />
           </div>
           <div className="field form-group col-md-4">
-            <label className="label">Contact Email</label>
-              <input className="form-control" type="email" name="email" defaultValue={obj.ceo.email} onChange={handleChange} required />
+              <input className="form-control" type="email" name="email" defaultValue={obj.ceo.email} onChange={handleChange} placeholder="Email" required />
           </div>
         </div>
 
         {/* FINANCIALS SECTION */}
-        <h3> Finances</h3>
+        <h3> Add Financial Summary </h3>
         {fields.map((field, i) => {
           return (
             <div key={`${field}-${i}`}>

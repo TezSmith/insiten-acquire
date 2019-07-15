@@ -32,16 +32,17 @@ a {
 
 a:hover {
   text-decoration: none;
+  color: #058CAA;
 }
-
-/* .btn:hover {
-  background-color: #333;
-  border-color: #333;
-} */
 
 .btn-primary {
   background-color: #06AED5;
   border-color: #06AED5;
+}
+
+.btn-primary:hover {
+  background-color: #058CAA;
+  border-color: #058CAA;
 }
 
 .btn-secondary {
@@ -54,31 +55,31 @@ a:hover {
   border-color: #41D3BD;
 }
 
+.btn-success:hover, .btn-success::after {
+  background-color: #38B5A2;
+  border-color: #38B5A2;
+}
+
 .general {
-  background: url('business.jpg') no-repeat center center;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('business.jpg') no-repeat center center;
   background-size: cover;
-  width: 100%;
-  height: 100%;
-  position: relative;
+  position: relative
+}
+
+div.text-center {
+  color: #fff;
+}
+
+.text-muted {
+  color: #fff!important;
 }
 
 .portfolio {
-  background: url('hustle.jpg') no-repeat center center;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hustle.jpg') no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
   position: relative;
-}
-
-.overlay {
-   position: absolute;
-   top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-   background-color: #fff;
-   opacity: .9;
-   z-index: 100;
 }
 
 .details {
@@ -86,31 +87,10 @@ a:hover {
   padding-bottom: 10px;
 }
 
-.bg-light {
-  height: 100%;
+.full {
+  height: 100vh;
 }
 
 .about {
   text-align: left;
 }
-
-/* Adds background image */
-/* header.App-header  {
-  background: url('atlanta.jpg') no-repeat center center;
-  background-size: cover;
-  display: flex;
-  min-height: 100vh;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  &:before {
-     content: '';
-     position: absolute;
-     top: 0;
-     right: 0;
-     width: 100%;
-     height: 100%;
-     background-color: #fff;
-     opacity: .7;
-   }
-} */

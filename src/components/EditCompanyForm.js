@@ -13,22 +13,22 @@ const Form = (props) => {
 
   return (
     <div>
+      <h2 className="m-4"> Edit {ed.coname}'s Information </h2>
       <form onSubmit={handleSubmit}>
 
-        <div className="field form-group">
-          <label className="label">Company Name</label>
-            <input className="form-control" type="text" name="coname" defaultValue={ed.coname} onChange={handleChange} required />
+      <div className="field form-group">
+          <input className="form-control" type="text" name="coname" defaultValue={ed.coname} onChange={handleChange} placeholder="Company Name" required />
+      </div>
+      <div className="field form-group">
+          <input className="form-control" type="type" name="industry" defaultValue={ed.industry} onChange={handleChange} placeholder="Industry"  required />
+      </div>
+      <div className="field form-group">
+        <div className="control">
+          <input className="form-control" type="type" name="photo" defaultValue={ed.photo} onChange={handleChange} placeholder="Company Image" required />
         </div>
-        <div className="field form-group">
-          <label className="label">Industry</label>
-            <input className="form-control" type="type" name="industry" defaultValue={ed.industry} onChange={handleChange}  required />
-        </div>
-        <div className="field form-group">
-          <label className="label">Company Image Url</label>
-            <input className="form-control" type="type" name="photo" defaultValue={ed.photo} onChange={handleChange}  required />
-        </div>
+      </div>
 
-        <select className="field custom-select" name="status" onChange={handleChange} defaultValue={ed.status}>
+        <select className="field custom-select mb-3" name="status" onChange={handleChange} defaultValue={ed.status}>
           <option>Select Acquistion Status</option>
           <option value="researching">Researching</option>
           <option value="pending">Pending Approval</option>
@@ -38,46 +38,40 @@ const Form = (props) => {
 
 
         <div className="field form-group">
-          <label className="label"> Street Address</label>
-            <input className="form-control" type="type" name="street" defaultValue={ed.hq.street} onChange={handleChange} required />
+            <input className="form-control" type="type" name="street" defaultValue={ed.hq.street} onChange={handleChange} placeholder="Street Address" required />
         </div>
 
-        <div className="form-row">
-         <div className="field form-group col-md-6">
-           <label className="label"> City </label>
-             <input className="form-control" type="type" name="city" defaultValue={ed.hq.city} onChange={handleChange} required />
-         </div>
-         <div className="field form-group col-md-4">
-           <label className="label"> State </label>
-             <input className="form-control" type="type" name="state" defaultValue={ed.hq.state} onChange={handleChange} required />
-         </div>
-         <div className="field form-group col-md-2">
-           <label className="label">Zipcode</label>
-             <input className="form-control" type="type" name="zipcode" defaultValue={ed.hq.zipcode} onChange={handleChange} required />
-         </div>
-       </div>
+         <div className="form-row">
+          <div className="field form-group col-md-6">
+              <input className="form-control" type="type" name="city" defaultValue={ed.hq.city} onChange={handleChange} placeholder="City" required />
+          </div>
 
-       <div className="field form-group">
-         <label className="label">Country</label>
-           <input className="form-control" type="type" name="country" defaultValue={ed.hq.country} onChange={handleChange} required />
-       </div>
+          <div className="field form-group col-md-4">
+              <input className="form-control" type="type" name="state" defaultValue={ed.hq.state} onChange={handleChange} placeholder="State" required />
+          </div>
+
+          <div className="field form-group col-md-2">
+              <input className="form-control" type="type" name="zipcode" defaultValue={ed.hq.zipcode} onChange={handleChange} placeholder="Zipcode" required />
+          </div>
+        </div>
+        <div className="field form-group">
+            <input className="form-control" type="type" name="country" defaultValue={ed.hq.country} onChange={handleChange} placeholder="Country" required />
+        </div>
 
         <h3>Add Company CEO</h3>
 
         <div className="form-row">
           <div className="field form-group col-md-4">
-            <label className="label">First Name</label>
-              <input className="form-control" type="text" name="firstname" defaultValue={ed.ceo.firstname} onChange={handleChange} required />
+              <input className="form-control" type="text" name="firstname" defaultValue={ed.ceo.firstname} onChange={handleChange} placeholder="First Name" required />
           </div>
           <div className="field form-group col-md-4">
-            <label className="label">Last Name</label>
-              <input className="form-control" type="text" name="lastname" defaultValue={ed.ceo.lastname} onChange={handleChange} required />
+              <input className="form-control" type="text" name="lastname" defaultValue={ed.ceo.lastname} onChange={handleChange} placeholder="Last Name" required />
           </div>
           <div className="field form-group col-md-4">
-            <label className="label">Contact Email</label>
-              <input className="form-control" type="email" name="email" defaultValue={ed.ceo.email} onChange={handleChange} required />
+              <input className="form-control" type="email" name="email" defaultValue={ed.ceo.email} onChange={handleChange} placeholder="Email" required />
           </div>
         </div>
+
         {/* FINANCIALS SECTION */}
         <h3> Finances</h3>
         {fields.map((field, i) => {
@@ -154,8 +148,8 @@ const Form = (props) => {
           </div>
           )
         })}
-        <div className="mt-4">
-          <button type="submit" className="btn btn-success">Edit Company</button>
+        <div className="mt-5">
+          <button type="submit" className="btn btn-success btn-block">Edit Company</button>
         </div>
       </form>
     </div>

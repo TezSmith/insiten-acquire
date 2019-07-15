@@ -1,6 +1,7 @@
+
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { showDetails, addCompany, removeCompany } from '../actions/functions'
 
 const CompanyCard = (props) => {
@@ -8,7 +9,8 @@ const CompanyCard = (props) => {
 
     const showButton = () => {
       return portfolio.includes(c) === true ? <button onClick={() => removeCompany(c)} className="btn btn-sm btn-danger">Remove From Portfolio</button>
-       : <button onClick={() => addCompany(c)} className="btn btn-sm btn-success mx-1">Add To Portfolio</button>
+       : <button onClick={() => addCompany(c)} className="btn btn-sm btn-success mx-1 my-1
+       ">Add To Portfolio</button>
     }
 
     return (
@@ -16,11 +18,13 @@ const CompanyCard = (props) => {
         <div className="card mb-4">
           <div className="card-body shadow-sm ">
             <img src={c.photo} className="card-img"/>
-            <h4 className="mt-2">{c.coname}</h4>
-            <p className="card-text"> {c.hq.city}, {c.hq.state}</p>
+            <h4 className="mt-3
+            ">{c.coname}</h4>
+            <p className="card-text"> Status: {c.status} </p>
               <div className=" align-items-center">
                 <div className="">
-                <button onClick={() => showDetails(c)} className="btn btn-sm btn-primary mx-1">See Details</button>
+                {/*<button onClick={() => showDetails(c)} className="btn btn-sm btn-primary mx-1">See Details</button>*/}
+                <Link to={`/companies/${c.id}`} className="btn btn-sm btn-primary mx-1"> See Details </Link>
                 {showButton()}
                 </div>
               </div>
