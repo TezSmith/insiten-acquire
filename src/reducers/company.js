@@ -72,11 +72,9 @@ const companyReducer = (state = companyState, action) => {
             details: []
           }
         case SEARCH:
-          let q = action.search
-          debugger
         return {
           ...state,
-          q: q
+          q: action.search
         }
         default:
             return state

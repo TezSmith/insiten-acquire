@@ -147,7 +147,7 @@ const Form = (props) => {
               <button className="btn btn-primary mx-2" type="button" onClick={handleAdd}>
                 Add Financial Year
             </button>
-              <button className="btn btn-primary" type="button" onClick={(e) => handleRemove(i,e)}>
+              <button className="btn btn-danger" type="button" onClick={(e) => handleRemove(i,e)}>
                 Remove Financial Year
             </button>
             </div>
@@ -155,7 +155,7 @@ const Form = (props) => {
           )
         })}
         <div className="mt-4">
-          <button type="submit" className="btn btn-primary">Edit Company</button>
+          <button type="submit" className="btn btn-success">Edit Company</button>
         </div>
       </form>
     </div>

@@ -26,7 +26,7 @@ class Portfolio extends Component {
 
     return (
       <div>
-        <div className="jumbotron text-center">
+        <div className="jumbotron text-center portfolio">
           <div className="container">
             <h1 className="jumbotron-heading">Portfolio</h1>
             <p className="lead text-muted"> Your collection of prospective investments </p>

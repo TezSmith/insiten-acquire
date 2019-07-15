@@ -29,17 +29,17 @@ const CompanyDetails = (props) => {
         datasets: [{
           data: v,
           backgroundColor: [
+      		'#06AED5',
       		'#FF6384',
-      		'#36A2EB',
       		'#FFCE56',
-          '#FF6384',
+          '#41D3BD',
           '#36A2EB'
       		],
       		hoverBackgroundColor: [
+      		'#06AED5',
       		'#FF6384',
-      		'#36A2EB',
       		'#FFCE56',
-          '#FF6384',
+          '#41D3BD',
           '#36A2EB'
       		]
        }]
@@ -72,11 +72,11 @@ const CompanyDetails = (props) => {
      labels: years,
      datasets: [{
        label: "Revenue",
-       backgroundColor: "#3e95cd",
+       backgroundColor: "#06AED5",
        data: revs
      }, {
         label: "Expenses",
-        backgroundColor: "#3e95cd",
+        backgroundColor: "#FF6384",
         data: exps
      }]
    }
@@ -111,18 +111,18 @@ const CompanyDetails = (props) => {
      datasets: [{
         label: "Revenue",
         type: "line",
-        borderColor: "#8e5ea2",
+        borderColor: "#06AED5",
         data: revs,
         fill: true
      }, {
        label: "Assets",
        type: "bar",
-       backgroundColor: "#3e95cd",
+       backgroundColor: "#FFCE56",
        data: ast
      }, {
        label: "Liabilities",
        type: "bar",
-       backgroundColor: "#3e95cd",
+       backgroundColor: "#41D3BD",
        data: libs
     }, {
          label: "Equity",
@@ -163,8 +163,8 @@ const CompanyDetails = (props) => {
             <p className="card-text">{c.hq.street} <br/> {c.hq.city}, {c.hq.state} {c.hq.zipcode} <br/> {c.hq.country} </p>
             <p className="card-text"> <strong>CEO:</strong> {c.ceo.firstname} {c.ceo.lastname}</p>
             {showButton()}
-            <button className="btn btn-primary mx-1 mt-2" onClick={() => editCompany(c)}> Edit </button>
-            <button className="btn btn-primary mx-1 mt-2" onClick={() => deleteCompany(c)}> Delete </button>
+            <button className="btn btn-secondary mx-1 mt-2" onClick={() => editCompany(c)}> Edit </button>
+            <button className="btn btn-danger mx-1 mt-2" onClick={() => deleteCompany(c)}> Delete </button>
 
           </div>
         </div>
@@ -238,7 +238,6 @@ const CompanyDetails = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-
   const { details, portfolio } = state.company
   return {
     details: details,

@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import { showDetails, addCompany, removeCompany } from '../actions/functions'
 
 const CompanyCard = (props) => {
     const {c, showDetails, addCompany, removeCompany, portfolio, match } = props
-    
+
     const showButton = () => {
-      return portfolio.includes(c) === true ? <button onClick={() => removeCompany(c)} className="btn btn-sm btn-outline-secondary">Remove From Portfolio</button>
-       : <button onClick={() => addCompany(c)} className="btn btn-sm btn-outline-secondary">Add To Portfolio</button>
+      return portfolio.includes(c) === true ? <button onClick={() => removeCompany(c)} className="btn btn-sm btn-danger">Remove From Portfolio</button>
+       : <button onClick={() => addCompany(c)} className="btn btn-sm btn-success mx-1">Add To Portfolio</button>
     }
 
     return (
@@ -19,8 +19,8 @@ const CompanyCard = (props) => {
             <h4 className="mt-2">{c.coname}</h4>
             <p className="card-text"> {c.hq.city}, {c.hq.state}</p>
               <div className=" align-items-center">
-                <div className="btn-group">
-                <button onClick={() => showDetails(c)} className="btn btn-sm btn-outline-secondary">See Details</button>
+                <div className="">
+                <button onClick={() => showDetails(c)} className="btn btn-sm btn-primary mx-1">See Details</button>
                 {showButton()}
                 </div>
               </div>
@@ -44,4 +44,4 @@ const mapDispatchToProps = {
   removeCompany
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(CompanyCard)
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(CompanyCard))

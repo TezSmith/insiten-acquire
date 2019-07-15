@@ -24,8 +24,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-       <Route exact path="/companies" component={CompanyContainer} />
-         <Route path="/companies/:id" component={CompanyDetails} />
+       <Route exact path="/companies/" component={CompanyContainer} />
+         <Route exact path="companies/:id" render={(props) => <CompanyCard {...props} /> } />
        <Route path="/portfolio" component={Portfolio} />
       </div>
     )
