@@ -17,6 +17,16 @@ class CompanyContainer extends Component {
            return companies.map((c,i) => <CompanyCard c={c} key={i} /> )
         }
 
+        const showSearch = () => {
+          if (!form) {
+            return (
+              <form className="form-inline ">
+                <input className="form-control search" type="search" placeholder="Search by Acquistion Status, Industry or Name" aria-label="Search" onChange={(e) => search(e.target.value)}/>
+              </form>
+            )
+          }
+        }
+
         return (
           <div>
             <div className="jumbotron text-center general">
@@ -29,12 +39,8 @@ class CompanyContainer extends Component {
             </div>
               <div className="py-5 bg-light">
                 <div className="container">
-                <nav className=" navbar-light">
-                <form className="form-inline">
-                 <input className="form-control" type="search" placeholder="Search" aria-label="Search" onChange={(e) => search(e.target.value)}/>
-                </form>
-              </nav>
-              <div className="row align-center mt-4">
+                 {showSearch()}
+                 <div className="row align-center mt-4">
                   { form ? <NewCompanyForm/> : showCards()}
                 </div>
               </div>

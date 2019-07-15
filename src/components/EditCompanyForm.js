@@ -12,7 +12,7 @@ const EditForm = (props) => {
 
   function handleCreate() {
     updateCompany(values)
-    props.history.push(`/companies/${values.id}`)
+    props.history.push('/companies')
   }
 
   return (
@@ -29,7 +29,7 @@ const EditForm = (props) => {
       </div>
       <div className="field form-group">
         <div className="control">
-          <input className="form-control" type="type" name="photo" defaultValue={ed.photo} onChange={handleChange} placeholder="Company Image" required />
+          <input className="form-control" type="type" name="photo" defaultValue={ed.photo} onChange={handleChange} placeholder="Company Image Url" required />
         </div>
       </div>
 
@@ -84,7 +84,7 @@ const EditForm = (props) => {
               <div className="field form-group col-md-2">
               <input
                 className="form-control"
-                type="text"
+                type="number"
                 name="year"
                 defaultValue={field.year}
                 placeholder="Financial Year"
@@ -94,7 +94,7 @@ const EditForm = (props) => {
               <div className="field form-group col-md-2">
               <input
                 className="form-control"
-                type="text"
+                type="number"
                 name="rev"
                 defaultValue={field.rev}
                 placeholder="Revenue"
@@ -104,7 +104,7 @@ const EditForm = (props) => {
               <div className="field form-group col-md-2">
               <input
                 className="form-control"
-                type="text"
+                type="number"
                 name="exp"
                 defaultValue={field.exp}
                 placeholder="Expenses"
@@ -114,7 +114,7 @@ const EditForm = (props) => {
               <div className="field form-group col-md-2">
               <input
                 className="form-control"
-                type="text"
+                type="number"
                 name="assets"
                 defaultValue={field.assets}
                 placeholder="Assets Valuation"
@@ -124,7 +124,7 @@ const EditForm = (props) => {
               <div className="field form-group col-md-2">
               <input
                 className="form-control"
-                type="text"
+                type="number"
                 name="lib"
                 defaultValue={field.lib}
                 placeholder="Liabilities Amount"

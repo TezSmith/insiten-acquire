@@ -3,13 +3,14 @@ import Faker from 'faker'
 const companies = []
 
 const status = ['Researching','Pending Approval','Approved','Declined']
+const industry = ['Technology', 'Retail', 'Health & Fitness', 'Real Estate', 'Food & Beverage']
 
 function makeCompany(i) {
     return {
         id: i,
         coname: Faker.company.companyName(),
         photo: Faker.random.image(),
-        industry: "Education",
+        industry: makeIndustry(),
         status: makeStatus(),
         ceo: {
             firstname: Faker.name.firstName(),
@@ -33,13 +34,18 @@ function makeCompany(i) {
     }
 }
 
-for (var i = 1; i < 5; i++) {
+for (var i = 1; i < 20; i++) {
     companies.push(makeCompany(i))
 }
 
 function makeStatus() {
   let num = Math.floor(Math.random() * 4)
   return status[num]
+}
+
+function makeIndustry() {
+  let num = Math.floor(Math.random() * 5)
+  return industry[num]
 }
 
 const obj = {

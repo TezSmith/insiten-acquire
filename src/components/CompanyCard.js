@@ -17,8 +17,8 @@ const CompanyCard = (props) => {
         <div className="card mb-4">
           <div className="card-body shadow-sm ">
             <img src={c.photo} className="card-img"/>
-            <h4 className="mt-3
-            ">{c.coname}</h4>
+            <h4 className="mt-3 mb-2">{c.coname}</h4>
+            <h6> {c.industry} </h6>
             <p className="card-text"> Status: {c.status} </p>
             <div className=" align-items-center">
               <div className="">

@@ -83,7 +83,7 @@ const companyReducer = (state = companyState, action) => {
 
 const getSearchResults = (companies, q) => {
   return companies.filter(c => {
-    return c.status.toLowerCase().includes(q) || c.hq.city.toLowerCase().includes(q)
+    return c.status.toLowerCase().includes(q) || c.industry.toLowerCase().includes(q) || c.coname.toLowerCase().includes(q) 
   })
 }
 

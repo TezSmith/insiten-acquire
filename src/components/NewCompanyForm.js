@@ -9,6 +9,7 @@ const Form = (props) => {
 
   function handleCreate() {
     createCompany(values)
+    props.history.push('/companies/')
   }
 
   return (
@@ -24,7 +25,7 @@ const Form = (props) => {
         </div>
         <div className="field form-group">
           <div className="control">
-            <input className="form-control" type="type" name="photo" defaultValue={obj.photo} onChange={handleChange} placeholder="Company Image" required />
+            <input className="form-control" type="type" name="photo" defaultValue={obj.photo} onChange={handleChange} placeholder="Company Image Url" required />
           </div>
         </div>
 
