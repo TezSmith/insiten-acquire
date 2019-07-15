@@ -28,6 +28,17 @@ const Form = (props) => {
             <input className="form-control" type="type" name="photo" defaultValue={obj.photo} onChange={handleChange}  required />
           </div>
         </div>
+
+
+        <select className="field custom-select" name="status" onChange={handleChange}>
+          <option >Select Acquistion Status</option>
+          <option value="researching">Researching</option>
+          <option value="pending">Pending Approval</option>
+          <option value="approved">Approval</option>
+          <option value="declined">Declined</option>
+        </select>
+
+
         <div className="field form-group">
           <label className="label"> Street Address</label>
             <input className="form-control" type="type" name="street" defaultValue={obj.hq.street} onChange={handleChange} required />
@@ -83,7 +94,7 @@ const Form = (props) => {
                 defaultValue={field.value}
                 placeholder="Financial Year"
                 onChange={(e) => handleFinanceChange(i, e)}
-              />
+              required/>
               </div>
               <div className="field form-group col-md-2">
               <input
@@ -93,7 +104,7 @@ const Form = (props) => {
                 defaultValue={field.value}
                 placeholder="Revenue"
                 onChange={(e) => handleFinanceChange(i, e)}
-              />
+              required/>
               </div>
               <div className="field form-group col-md-2">
               <input
@@ -103,7 +114,7 @@ const Form = (props) => {
                 defaultValue={field.value}
                 placeholder="Expenses"
                 onChange={(e) => handleFinanceChange(i, e)}
-              />
+              required/>
               </div>
               <div className="field form-group col-md-2">
               <input
@@ -113,7 +124,7 @@ const Form = (props) => {
                 defaultValue={field.value}
                 placeholder="Assets Valuation"
                 onChange={(e) => handleFinanceChange(i, e)}
-              />
+              required/>
               </div>
               <div className="field form-group col-md-2">
               <input
@@ -123,7 +134,7 @@ const Form = (props) => {
                 defaultValue={field.value}
                 placeholder="Liabilities Amount"
                 onChange={(e) => handleFinanceChange(i, e)}
-              />
+              required/>
               </div>
               <div className="field form-group col-md-2">
               <input
@@ -133,7 +144,7 @@ const Form = (props) => {
                 defaultValue={field.value}
                 placeholder="Equity Valuation"
                 onChange={(e) => handleFinanceChange(i, e)}
-              />
+              required/>
               </div>
               <button className="btn btn-primary mx-2" type="button" onClick={handleAdd}>
                 Add Financial Year

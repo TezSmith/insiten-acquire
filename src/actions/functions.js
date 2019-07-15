@@ -1,6 +1,12 @@
 import { ADD_COMPANY, SHOW_DETAILS, REMOVE_COMPANY, CREATE_COMPANY, CANCEL_EDIT,
-         EDIT_COMPANY, HIDE_DETAILS, UPDATE_COMPANY, DELETE, SHOW_FORM } from './types'
+         EDIT_COMPANY, HIDE_DETAILS, UPDATE_COMPANY, DELETE, SHOW_FORM, SEARCH, FILTER } from './types'
 import companies from '../companies'
+
+export function search(q) {
+  return dispatch => {
+    dispatch({ type: SEARCH, search: q })
+  }
+}
 
 // Show New Company Form
 export function showForm() {
@@ -18,14 +24,15 @@ export function cancelEdit() {
 // Creates New Company
 export function createCompany(values) {
   return dispatch => {
-
+    console.log("New Form Values: ", values)
     let id = companies.length + 1
 
     let obj = {
       id: id,
       coname: values.coname,
-      industry: values.industry,
       photo: values.photo,
+      industry: values.industry,
+      status: values.status,
       ceo: {
           firstname: values.firstname,
           lastname: values.lastname,

@@ -2,12 +2,15 @@ import Faker from 'faker'
 
 const companies = []
 
+const status = ['Researching','Pending Approval','Approved','Declined']
+
 function makeCompany(i) {
     return {
         id: i,
         coname: Faker.company.companyName(),
         photo: Faker.random.image(),
         industry: "Education",
+        status: makeStatus(),
         ceo: {
             firstname: Faker.name.firstName(),
             lastname: Faker.name.lastName(),
@@ -32,6 +35,11 @@ function makeCompany(i) {
 
 for (var i = 1; i < 5; i++) {
     companies.push(makeCompany(i))
+}
+
+function makeStatus() {
+  let num = Math.floor(Math.random() * 4)
+  return status[num]
 }
 
 const obj = {

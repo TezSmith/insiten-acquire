@@ -4,15 +4,20 @@ import { withRouter, Route } from 'react-router-dom'
 import CompanyCard from '../components/CompanyCard'
 import CompanyDetailsContainer from './CompanyDetailsContainer'
 import NewCompanyForm from '../components/NewCompanyForm'
-import { showForm } from '../actions/functions'
+import { showForm, search } from '../actions/functions'
+import { getSearchResults } from '../reducers/company';
+
 
 class CompanyContainer extends Component {
 
+
+
     render() {
 
-        const { companies, details, showForm, form } = this.props
+        const { companies, details, showForm, form, search, term } = this.props
 
         const showContent = () => {
+
            return details.length === 0 ? companies.map((c,i) =>
               <CompanyCard c={c} key={i} />) : <CompanyDetailsContainer />
         }
@@ -30,7 +35,12 @@ class CompanyContainer extends Component {
           </section>
             <div className="py-5 bg-light">
               <div className="container">
-                <div className="row align-center">
+              <nav className="navbar navbar-light bg-light">
+              <form className="form-inline">
+              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => search(e.target.value)}/>
+              </form>
+              </nav>
+                <div className="row align-center mt-4">
                   { form ? <NewCompanyForm/> : showContent()}
                 </div>
               </div>
@@ -42,12 +52,12 @@ class CompanyContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const { companies, details, form } = state.company
+    const { companies, details, form, q } = state.company
     return {
-      companies: companies,
+      companies: getSearchResults(companies, q),
       details: details,
       form: form
     }
 }
 
-export default withRouter(connect(mapStateToProps, { showForm })(CompanyContainer))
+export default withRouter(connect(mapStateToProps, { showForm, search })(CompanyContainer))

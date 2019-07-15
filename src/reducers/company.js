@@ -1,5 +1,5 @@
 import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY, CANCEL_EDIT,
-        EDIT_COMPANY, UPDATE_COMPANY, HIDE_DETAILS, DELETE, SHOW_FORM } from '../actions/types'
+        EDIT_COMPANY, UPDATE_COMPANY, HIDE_DETAILS, DELETE, SHOW_FORM, SEARCH, FILTER } from '../actions/types'
 import companies from '../companies'
 
 
@@ -9,7 +9,8 @@ const companyState = {
     details: [],
     edit: [],
     form: false,
-    welcome: true
+    q: '',
+    filter: []
 }
 
 const companyReducer = (state = companyState, action) => {
@@ -61,21 +62,33 @@ const companyReducer = (state = companyState, action) => {
           return {
             ...state,
             companies: [...state.companies.map(c => c.id === action.update.id ? action.update : c )],
-            edit: []
+            edit: [],
+            details: [action.update]
           }
         case DELETE:
           return {
             ...state,
-            companies: state.companies.filter((c) => c.id !== action.delete.id),
+            companies: state.companies.filter(c => c.id !== action.delete.id),
             details: []
           }
-        // case WELCOME:
-        // return {
-        //   ...state,
-        //   welcome: !state.welcome
-        // }
+        case SEARCH:
+          let q = action.search
+          debugger
+        return {
+          ...state,
+          q: q
+        }
         default:
             return state
     }
 }
+
+const getSearchResults = (companies, q) => {
+  return companies.filter(c => {
+    return c.status.toLowerCase().includes(q) || c.hq.city.toLowerCase().includes(q)
+  })
+}
+
+
 export default companyReducer
+export { getSearchResults }

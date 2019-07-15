@@ -14,7 +14,7 @@ const CompanyDetailsCont = (props) => {
 
     return (
         <div>
-           {edit.length > 0 === true ? <button onClick={cancelEdit}> Go Back to Detail </button> : null}
+           {edit.length > 0 ? <button onClick={cancelEdit}> Go Back to Detail </button> : null}
            {showContent()}
         </div>
     )

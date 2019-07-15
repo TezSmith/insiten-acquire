@@ -15,6 +15,8 @@ const CompanyDetails = (props) => {
 
    let fin = obj[0].finances.pop()
 
+   if (fin === undefined) return
+
    let keys = Object.keys(fin)
    let values = Object.values(fin)
 
@@ -49,13 +51,16 @@ const CompanyDetails = (props) => {
 
  const threeYearSnap = (obj) => {
    let fin = obj[0].finances
+
+   if (fin === undefined) return
+
    let sorted = fin.sort((a,b) => a.year - b.year)
    let three = []
-   
+
    for (let i = sorted.length-1; i > 0; i--) {
      if (three.length <= 3 ){
        three.push(sorted[i])
-     } 
+     }
    }
 
    three = three.sort((a, b) => a.year - b.year)
@@ -82,6 +87,9 @@ const CompanyDetails = (props) => {
 
  const balanceSnap = (obj) => {
    let fin = obj[0].finances
+
+   if (fin === undefined) return
+
    let sorted = fin.sort((a, b) => a.year - b.year)
    let three = []
 
@@ -129,8 +137,8 @@ const CompanyDetails = (props) => {
  }
 
   const showButton = () => {
-    return portfolio.includes(c) === true ? <button className="btn btn-primary mx-1" onClick={() => removeCompany(c)} >Remove From Portfolio</button>
-      : <button className="btn btn-primary mx-1" onClick={() => addCompany(c)} >Add To Portfolio</button>
+    return portfolio.includes(c) === true ? <button className="btn btn-primary mx-1 mt-2" onClick={() => removeCompany(c)} >Remove From Portfolio</button>
+      : <button className="btn btn-primary mx-1 mt-2" onClick={() => addCompany(c)} >Add To Portfolio</button>
   }
 
   return (
@@ -151,16 +159,17 @@ const CompanyDetails = (props) => {
           <div className="card-body text-left">
             <h5 className="card-title">{c.coname}</h5>
             <p className="card-text"> <strong>Industry:</strong> {c.industry}</p>
+            <p className="card-text"> <strong>Status:</strong> {c.status}</p>
             <p className="card-text">{c.hq.street} <br/> {c.hq.city}, {c.hq.state} {c.hq.zipcode} <br/> {c.hq.country} </p>
             <p className="card-text"> <strong>CEO:</strong> {c.ceo.firstname} {c.ceo.lastname}</p>
             {showButton()}
-            <button className="btn btn-primary mx-1" onClick={() => editCompany(c)}> Edit </button>
-            <button className="btn btn-primary mx-1" onClick={() => deleteCompany(c)}> Delete </button>
+            <button className="btn btn-primary mx-1 mt-2" onClick={() => editCompany(c)}> Edit </button>
+            <button className="btn btn-primary mx-1 mt-2" onClick={() => deleteCompany(c)}> Delete </button>
 
           </div>
         </div>
         </div>
-        
+
         <div className="col-md-6">
 
 
@@ -219,7 +228,7 @@ const CompanyDetails = (props) => {
             />
             </div>
           </div>
-        
+
    </div>
 
 
