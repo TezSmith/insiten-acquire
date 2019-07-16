@@ -8,11 +8,10 @@ import { getEditDetails } from '../reducers/company';
 
 const EditForm = (props) => {
   const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields, ed } = useEditForm(props, handleCreate);
-  const { updateCompany } = props
+  const { updateCompany, history } = props
 
   function handleCreate() {
-    updateCompany(values)
-    props.history.push('/companies')
+    updateCompany(values, history)
   }
 
   return (
@@ -163,7 +162,8 @@ const EditForm = (props) => {
 const mapStateToProps = (state, ownProps) => {
   const { edit } = state.company
   return {
-    edit: getEditDetails(state, ownProps)
+    edit: getEditDetails(state, ownProps),
+    history: ownProps.history
   }
 }
 

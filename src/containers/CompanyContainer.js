@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Route, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import CompanyCard from '../components/CompanyCard'
-import CompanyDetailsContainer from './CompanyDetailsContainer'
 import NewCompanyForm from '../components/NewCompanyForm'
 import { showForm, search } from '../actions/functions'
 import { getSearchResults } from '../reducers/company';
@@ -33,7 +32,7 @@ class CompanyContainer extends Component {
               <div className="container">
                 <h1 className="jumbotron-heading">Browse Companies</h1>
                 <p className="lead text-muted"> Check out our collecton of companies and see which venture makes sense for you. Click the details
-                to learn more, and if you're interested in tracking click add to Portfolio. Or if you'd like to add to our listings, click the button below! </p>
+                to learn more about the company or click add to portfolio to track them. And if you'd like to add to our listings, click the button below! </p>
                 { form ? <button onClick={showForm} className="btn btn-secondary my-2"> Go Back </button> : <button onClick={showForm} className="btn btn-primary my-2">Create New Company</button>}
               </div>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { withRouter, Route, Switch } from 'react-router-dom'
+import { withRouter, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './containers/HomeContainer'
 import Welcome from './components/Welcome'

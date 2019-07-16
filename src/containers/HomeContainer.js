@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import CompanyContainer from './CompanyContainer'
 import Portfolio from './PortfolioContainer'
-import CompanyCard from '../components/CompanyCard'
 import CompanyDetails from '../components/CompanyDetails'
 import EditForm from '../components/EditCompanyForm'
 

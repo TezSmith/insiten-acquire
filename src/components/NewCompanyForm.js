@@ -5,7 +5,7 @@ import { createCompany } from '../actions/functions'
 
 const Form = (props) => {
   const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields, obj } = useForm(handleCreate);
-  const { createCompany, back } = props
+  const { createCompany } = props
 
   function handleCreate() {
     createCompany(values)

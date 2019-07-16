@@ -1,5 +1,5 @@
 import { ADD_COMPANY, REMOVE_COMPANY, SHOW_DETAILS, CREATE_COMPANY, CANCEL_EDIT,
-        EDIT_COMPANY, UPDATE_COMPANY, HIDE_DETAILS, DELETE, SHOW_FORM, SEARCH, FILTER } from '../actions/types'
+        EDIT_COMPANY, UPDATE_COMPANY, HIDE_DETAILS, DELETE, SHOW_FORM, SEARCH } from '../actions/types'
 import companies from '../companies'
 
 
@@ -83,7 +83,7 @@ const companyReducer = (state = companyState, action) => {
 
 const getSearchResults = (companies, q) => {
   return companies.filter(c => {
-    return c.status.toLowerCase().includes(q) || c.industry.toLowerCase().includes(q) || c.coname.toLowerCase().includes(q) 
+    return c.status.toLowerCase().includes(q) || c.industry.toLowerCase().includes(q) || c.coname.toLowerCase().includes(q)
   })
 }
 

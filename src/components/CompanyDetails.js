@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link, Redirect } from 'react-router-dom'
 import { Doughnut, Bar } from 'react-chartjs-2'
-import { hideDetails, addCompany, editCompany, deleteCompany, removeCompany } from '../actions/functions'
+import { addCompany, deleteCompany, removeCompany } from '../actions/functions'
 import { snapshot, threeYearSnap, balanceSnap } from '../chartFunctions'
 import { getCompanyDetails } from '../reducers/company';
 
 
 const CompanyDetails = (props) => {
 
- const { hideDetails, editCompany, deleteCompany, removeCompany, addCompany, portfolio } = props
+ const { deleteCompany, removeCompany, addCompany, portfolio, history } = props
  const c = props.details[0]
  const obj = props.details
 
@@ -24,7 +24,7 @@ const CompanyDetails = (props) => {
      return (
        <div>
          <Link to={`/companies/${c.id}/edit`} className="btn btn-secondary mx-1 mt-2"> Edit </Link>
-         <button className="btn btn-danger mx-1 mt-2" onClick={() => deleteCompany(c)}> Delete </button>
+         <button className="btn btn-danger mx-1 mt-2" onClick={() => deleteCompany(c, history)}> Delete </button>
        </div>
      )
    }
@@ -121,14 +121,13 @@ const mapStateToProps = (state, ownProps) => {
   const { details, portfolio } = state.company
   return {
     details: getCompanyDetails(details, ownProps),
-    portfolio: portfolio
+    portfolio: portfolio,
+    history: ownProps.history
   }
 }
 
 const mapDispatchToProps = {
-  hideDetails,
   addCompany,
-  editCompany,
   removeCompany,
   deleteCompany
 }

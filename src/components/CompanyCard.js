@@ -2,10 +2,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
-import { showDetails, addCompany, removeCompany } from '../actions/functions'
+import { addCompany, removeCompany } from '../actions/functions'
 
 const CompanyCard = (props) => {
-    const {c, showDetails, addCompany, removeCompany, portfolio, match } = props
+    const {c, addCompany, removeCompany, portfolio } = props
 
     const showButton = () => {
       return portfolio.includes(c) === true ? <button onClick={() => removeCompany(c)} className="btn btn-sm btn-danger">Remove From Portfolio</button>
@@ -16,7 +16,7 @@ const CompanyCard = (props) => {
       <div className="col-md-4">
         <div className="card mb-4">
           <div className="card-body shadow-sm ">
-            <img src={c.photo} className="card-img"/>
+            <img src={c.photo} className="card-img" alt="company headquarters"/>
             <h4 className="mt-3 mb-2">{c.coname}</h4>
             <h6> {c.industry} </h6>
             <p className="card-text"> Status: {c.status} </p>
@@ -41,7 +41,6 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = {
-  showDetails,
   addCompany,
   removeCompany
 }

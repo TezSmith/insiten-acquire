@@ -1,5 +1,5 @@
 import { ADD_COMPANY, SHOW_DETAILS, REMOVE_COMPANY, CREATE_COMPANY, CANCEL_EDIT,
-         EDIT_COMPANY, HIDE_DETAILS, UPDATE_COMPANY, DELETE, SHOW_FORM, SEARCH, FILTER } from './types'
+         EDIT_COMPANY, HIDE_DETAILS, UPDATE_COMPANY, DELETE, SHOW_FORM, SEARCH } from './types'
 import companies from '../companies'
 
 export function search(q) {
@@ -83,11 +83,10 @@ export function editCompany(c) {
 }
 
 // Update Company Details
-export function updateCompany(values) {
+export function updateCompany(values, history) {
    return dispatch => {
      dispatch({type: UPDATE_COMPANY, update: values})
-
-     // window.history.pushState('/')
+     history.push('/companies/')
   }
 }
 
@@ -107,8 +106,9 @@ export function removeCompany(c) {
 }
 
 // Delete Company from site
-export function deleteCompany(c){
+export function deleteCompany(c, history ){
   return dispatch => {
     dispatch({ type: DELETE, delete: c })
+    history.push('/companies')
   }
 }

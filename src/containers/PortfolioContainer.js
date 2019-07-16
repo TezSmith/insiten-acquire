@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import CompanyCard from '../components/CompanyCard'
-import CompanyDetailsContainer from './CompanyDetailsContainer'
 
 
 class Portfolio extends Component {
 
   render() {
 
-    const { portfolio, details } = this.props.company
+    const { portfolio } = this.props.company
 
     const showContent = () => {
       if (portfolio.length === 0) {
@@ -45,10 +44,9 @@ class Portfolio extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { company, details } = state
+  const { company } = state
   return {
-    company: company,
-    details: details
+    company: company
   }
 }
 
