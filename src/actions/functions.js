@@ -86,7 +86,7 @@ export function editCompany(c) {
 export function updateCompany(values, history) {
    return dispatch => {
      dispatch({type: UPDATE_COMPANY, update: values})
-     history.push('/companies/')
+     history.push(`/companies/${values.id}`)
   }
 }
 

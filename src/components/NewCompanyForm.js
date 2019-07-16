@@ -9,7 +9,6 @@ const Form = (props) => {
 
   function handleCreate() {
     createCompany(values)
-    props.history.push('/companies/')
   }
 
   return (

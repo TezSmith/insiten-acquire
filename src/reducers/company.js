@@ -9,8 +9,7 @@ const companyState = {
     details: [],
     edit: [],
     form: false,
-    q: '',
-    filter: []
+    q: ''
 }
 
 const companyReducer = (state = companyState, action) => {
@@ -62,13 +61,12 @@ const companyReducer = (state = companyState, action) => {
           return {
             ...state,
             companies: [...state.companies.map(c => c.id === action.update.id ? action.update : c )],
-            edit: [],
             details: [action.update]
           }
         case DELETE:
           return {
             ...state,
-            companies: state.companies.filter(c => c.id !== action.delete.id),
+            companies: [...state.companies.filter(c => c.id !== action.delete.id)],
             details: []
           }
         case SEARCH:
@@ -82,15 +80,20 @@ const companyReducer = (state = companyState, action) => {
 }
 
 const getSearchResults = (companies, q) => {
-  return companies.filter(c => {
-    return c.status.toLowerCase().includes(q) || c.industry.toLowerCase().includes(q) || c.coname.toLowerCase().includes(q)
-  })
+  q = q.toLowerCase()
+  if (q) {
+    return [...companies.filter(c => {
+      return c.status.toLowerCase().includes(q) || c.industry.toLowerCase().includes(q) || c.coname.toLowerCase().includes(q)
+    })]
+  } else {
+      return companies
+  }
 }
 
 const getCompanyDetails = (state, ownProps) => {
   let id = parseInt(ownProps.match.params.id)
   if (id) {
-    return companies.filter(c => c.id === id)
+    return [...state.company.companies.filter(c => c.id === id)]
   } else {
     return state.details
   }
@@ -99,7 +102,7 @@ const getCompanyDetails = (state, ownProps) => {
 const getEditDetails = (state, ownProps) => {
   let id = parseInt(ownProps.match.params.id)
   if (id) {
-    return state.company.companies.filter(c => c.id === id)
+    return [...state.company.companies.filter(c => c.id === id)]
   } else {
     return state.edit
   }

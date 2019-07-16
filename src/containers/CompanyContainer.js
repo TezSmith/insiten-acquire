@@ -20,7 +20,7 @@ class CompanyContainer extends Component {
           if (!form) {
             return (
               <form className="form-inline ">
-                <input className="form-control search" type="search" placeholder="Search by Acquistion Status, Industry or Name" aria-label="Search" onChange={(e) => search(e.target.value)}/>
+                <input className="form-control search" type="text" placeholder="Search by Acquistion Status, Industry or Name" aria-label="Search" onChange={(e) => search(e.target.value)}/>
               </form>
             )
           }
