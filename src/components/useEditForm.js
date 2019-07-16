@@ -31,8 +31,10 @@ const useForm = (props, callback) => {
 
   const handleRemove = (i) => {
     const finances = [...fields];
-    if (finances.length === 1) return null
-    finances.splice(i, 1);
+    if (i > 1) {
+     finances.splice(i, 1);
+     setFields(finances);
+    }
     setFields(finances);
   }
 
