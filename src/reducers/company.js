@@ -89,11 +89,7 @@ const getSearchResults = (companies, q) => {
 
 const getCompanyDetails = (state, ownProps) => {
   let id = parseInt(ownProps.match.params.id)
-  if (id) {
-    return companies.filter(c => c.id === id)
-  } else {
-    return state.details
-  }
+  return state.company.companies.filter(c => c.id === id)
 }
 
 const getEditDetails = (state, ownProps) => {

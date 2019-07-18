@@ -3,11 +3,9 @@ import { useState } from 'react';
 const useForm = (props, callback) => {
 
   let ed = props.edit[0]
-  let initFin = ed.finances
-  console.log("This is initFin: ", initFin)
 
   const [values, setValues] = useState(ed)
-  const [fields, setFields] = useState(initFin);
+  const [fields, setFields] = useState(ed.finances);
 
   const handleSubmit = (e) => {
     if (e) e.preventDefault()
@@ -33,10 +31,10 @@ const useForm = (props, callback) => {
   const handleRemove = (i) => {
     const finances = [...fields];
     if (i > 0) {
-     finances.splice(i, 1);
+      finances.splice(i, 1)
+      console.log("This is finances: ", finances)
      setFields(finances);
     }
-    setFields(finances);
   }
 
   return {

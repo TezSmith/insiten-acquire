@@ -19,11 +19,11 @@ const CompanyDetailsCont = (props) => {
 }
 
 // Edit is passed via hooks to edit form
-const mapStateToProps = (state, ownProps) => {
-    const { edit } = state.company
-    return {
-        edit: getEditDetails(state, ownProps)
-    }
-}
+// const mapStateToProps = (state, ownProps) => {
+//     const { edit } = state.company
+//     return {
+//         edit: getEditDetails(state, ownProps)
+//     }
+// }
 
-export default withRouter(connect(mapStateToProps, {cancelEdit})(CompanyDetailsCont))
+export default withRouter(connect(null, {cancelEdit})(CompanyDetailsCont))

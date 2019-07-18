@@ -11,6 +11,7 @@ const EditForm = (props) => {
   const { updateCompany, history } = props
 
   function handleCreate() {
+    console.log("These are the form values: ", values)
     updateCompany(values, history)
   }
 
@@ -165,7 +166,6 @@ const EditForm = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { edit } = state.company
   return {
     edit: getEditDetails(state, ownProps),
     history: ownProps.history

@@ -118,9 +118,9 @@ const CompanyDetails = (props) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const { details, portfolio } = state.company
+  const { portfolio } = state.company
   return {
-    details: getCompanyDetails(details, ownProps),
+    details: getCompanyDetails(state, ownProps),
     portfolio: portfolio,
     history: ownProps.history
   }
