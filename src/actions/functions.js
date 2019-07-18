@@ -86,7 +86,6 @@ export function editCompany(c) {
 
 // Update Company Details
 export function updateCompany(values, history) {
-  console.log("Updated values: ", values)
    return dispatch => {
      dispatch({type: UPDATE_COMPANY, update: values})
      history.push(`/companies/${values.id}`)

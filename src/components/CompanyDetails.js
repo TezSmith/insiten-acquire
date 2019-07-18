@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { withRouter, Link, Redirect } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { Doughnut, Bar } from 'react-chartjs-2'
 import { addCompany, deleteCompany, removeCompany } from '../actions/functions'
 import { snapshot, threeYearSnap, balanceSnap } from '../chartFunctions'

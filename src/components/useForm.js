@@ -32,7 +32,6 @@ const useForm = (callback) => {
     if (i !== 0) {
       finances.splice(i, 1)
       setFields(finances);
-      console.log("This is finances: ", finances)
     }
     setFields(finances);
   }

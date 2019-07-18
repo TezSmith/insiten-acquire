@@ -61,15 +61,12 @@ const companyReducer = (state = companyState, action) => {
         case UPDATE_COMPANY:
           return {
             ...state,
-            companies: [...state.companies.map(c => c.id === action.update.id ? action.update : c )],
-            edit: [],
-            details: [action.update]
+            companies: [...state.companies.map(c => c.id === action.update.id ? action.update : c )]
           }
         case DELETE:
           return {
             ...state,
-            companies: state.companies.filter(c => c.id !== action.delete.id),
-            details: []
+            companies: state.companies.filter(c => c.id !== action.delete.id)
           }
         case SEARCH:
         return {
@@ -82,6 +79,7 @@ const companyReducer = (state = companyState, action) => {
 }
 
 const getSearchResults = (companies, q) => {
+  q = q.toLowerCase()
   return companies.filter(c => {
     return c.status.toLowerCase().includes(q) || c.industry.toLowerCase().includes(q) || c.coname.toLowerCase().includes(q)
   })
@@ -107,11 +105,6 @@ const getEditDetails = (state, ownProps) => {
   } else {
     return co
   }
-  // if (id) {
-  //   return state.company.companies.filter(c => c.id === id)
-  // } else {
-  //   return state.edit
-  // }
 }
 
 
