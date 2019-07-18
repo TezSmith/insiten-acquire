@@ -8,11 +8,8 @@ import { getCompanyDetails } from '../reducers/company';
 
 
 const CompanyDetails = (props) => {
-
  const { deleteCompany, removeCompany, addCompany, portfolio, history } = props
  const c = props.details[0]
- const obj = props.details
-
 
  const addCard = () => {
    return portfolio.includes(c) === true ? <button className="btn btn-primary mx-1 mt-2" onClick={() => removeCompany(c)} >Remove From Portfolio</button>
@@ -67,7 +64,7 @@ const CompanyDetails = (props) => {
             <Doughnut
               width={300}
               height={300}
-              data={snapshot(obj)}
+              data={snapshot(c)}
               options={{
                 maintainAspectRatio: false,
                 responsive: true,
@@ -83,7 +80,7 @@ const CompanyDetails = (props) => {
             </div>
             <div className="card-body text-center">
               <Bar
-                data={threeYearSnap(obj)}
+                data={threeYearSnap(c)}
                 width={300}
                 height={300}
                 options={{
@@ -103,7 +100,7 @@ const CompanyDetails = (props) => {
             </div>
           <div className="card-body text-center">
             <Bar
-              data={balanceSnap(obj)}
+              data={balanceSnap(c)}
               width={500}
               height={300}
               options={{

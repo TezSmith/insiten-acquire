@@ -1,7 +1,5 @@
 const snapshot = (obj) => {
-  let fin = obj[0].finances.pop()
-
-  if (fin === undefined) return
+  let fin = obj.finances[0]
 
   let keys = Object.keys(fin)
   let values = Object.values(fin)
@@ -34,9 +32,7 @@ const snapshot = (obj) => {
 }
 
 const threeYearSnap = (obj) => {
-  let fin = obj[0].finances
-
-  if (fin === undefined) return
+  let fin = obj.finances
 
   let sorted = fin.sort((a,b) => a.year - b.year)
   let three = []
@@ -68,9 +64,7 @@ const threeYearSnap = (obj) => {
 }
 
 const balanceSnap = (obj) => {
-  let fin = obj[0].finances
-
-  if (fin === undefined) return
+  let fin = obj.finances
 
   let sorted = fin.sort((a, b) => a.year - b.year)
   let three = []

@@ -11,7 +11,6 @@ const EditForm = (props) => {
   const { updateCompany, history } = props
 
   function handleCreate() {
-    console.log("These are the form values: ", values)
     updateCompany(values, history)
   }
 
