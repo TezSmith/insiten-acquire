@@ -100,11 +100,18 @@ const getCompanyDetails = (state, ownProps) => {
 
 const getEditDetails = (state, ownProps) => {
   let id = parseInt(ownProps.match.params.id)
-  if (id) {
-    return state.company.companies.filter(c => c.id === id)
+  let co = state.company.companies.filter(c => c.id === id)
+  let port = state.company.portfolio.filter(c => c.id === id)
+  if (co.length === 0) {
+    return port
   } else {
-    return state.edit
+    return co
   }
+  // if (id) {
+  //   return state.company.companies.filter(c => c.id === id)
+  // } else {
+  //   return state.edit
+  // }
 }
 
 

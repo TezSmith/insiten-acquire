@@ -14,9 +14,10 @@ class Home extends Component {
       <div>
       <Switch>
         <Route exact path="/companies" component={CompanyContainer} />
-        <Route path="/companies/:id" component={CompanyDetails} />
         <Route path="/companies/:id/edit" component={EditForm} />
+        <Route path="/companies/:id" component={CompanyDetails} />
         <Route exact path="/portfolio" component={Portfolio} />
+        {/*<Route path="/portfolio/:id/edit" component={EditForm} />*/}
         <Route path="/portfolio/:id" component={CompanyDetails} />
       </Switch>
       </div>
