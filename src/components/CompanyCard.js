@@ -22,7 +22,7 @@ const CompanyCard = (props) => {
             <p className="card-text"> Status: {c.status} </p>
             <div className=" align-items-center">
               <div className="">
-              <Link to={`/companies/${c.id}`} className="btn btn-sm btn-primary mx-1"> See Details </Link>
+              <Link to={`${props.match.url}/${c.id}`} className="btn btn-sm btn-primary mx-1"> See Details </Link>
               {showButton()}
              </div>
            </div>
