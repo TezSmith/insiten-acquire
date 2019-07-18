@@ -9,8 +9,7 @@ const Form = (props) => {
   const { createCompany, history } = props
 
   function handleCreate() {
-    createCompany(values)
-    history.push('/companies/')
+    createCompany(values, history)
   }
 
   return (
@@ -155,13 +154,6 @@ const Form = (props) => {
 
     </div>
   )
-}
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    history: ownProps.history
-  }
-
 }
 
 export default withRouter(connect(null,{ createCompany })(Form));

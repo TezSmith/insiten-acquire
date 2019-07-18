@@ -22,7 +22,7 @@ export function cancelEdit() {
 }
 
 // Creates New Company
-export function createCompany(values) {
+export function createCompany(values, history) {
   return dispatch => {
 
     let id = companies.length + 1
@@ -57,6 +57,7 @@ export function createCompany(values) {
     }
 
     dispatch({type: CREATE_COMPANY, create: obj})
+    history.push(`/companies/${obj.id}`)
   }
 }
 
@@ -88,7 +89,7 @@ export function updateCompany(values, history) {
   console.log("Updated values: ", values)
    return dispatch => {
      dispatch({type: UPDATE_COMPANY, update: values})
-     history.push('/companies')
+     history.push(`/companies/${values.id}`)
   }
 }
 

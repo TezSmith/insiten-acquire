@@ -33,9 +33,13 @@ const useForm = (props, callback) => {
     if (i !== 0) {
       finances.splice(i, 1)
       setFields(finances);
+      setValues(values => ({ ...values, finances}))
       console.log("This is finances: ", finances)
+      console.log("This is values: ", values)
     }
     setFields(finances);
+    setValues(values => ({ ...values, finances }))
+
   }
 
   return {
