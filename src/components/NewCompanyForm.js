@@ -1,15 +1,16 @@
 import React from 'react'
 import useForm from "./useForm";
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { createCompany } from '../actions/functions'
 
 const Form = (props) => {
   const { values, handleChange, handleFinanceChange, handleSubmit, handleAdd, handleRemove, fields, obj } = useForm(handleCreate);
-  const { createCompany } = props
+  const { createCompany, history } = props
 
   function handleCreate() {
     createCompany(values)
-    props.history.push('/companies/')
+    history.push('/companies/')
   }
 
   return (
@@ -156,4 +157,11 @@ const Form = (props) => {
   )
 }
 
-export default connect(null,{ createCompany })(Form);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    history: ownProps.history
+  }
+
+}
+
+export default withRouter(connect(null,{ createCompany })(Form));

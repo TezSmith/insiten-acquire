@@ -24,7 +24,7 @@ export function cancelEdit() {
 // Creates New Company
 export function createCompany(values) {
   return dispatch => {
-    console.log("New Form Values: ", values)
+
     let id = companies.length + 1
 
     let obj = {
@@ -55,6 +55,7 @@ export function createCompany(values) {
     } else {
       finances.map((f) => obj.finances.push(f))
     }
+
     dispatch({type: CREATE_COMPANY, create: obj})
   }
 }
@@ -86,7 +87,7 @@ export function editCompany(c) {
 export function updateCompany(values, history) {
    return dispatch => {
      dispatch({type: UPDATE_COMPANY, update: values})
-     history.push('/companies/')
+     history.push('/companies')
   }
 }
 

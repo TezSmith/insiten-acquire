@@ -95,6 +95,7 @@ const EditForm = (props) => {
                 className="form-control"
                 type="number"
                 name="rev"
+                step="any"
                 defaultValue={field.rev}
                 placeholder="Revenue"
                 onChange={(e) => handleFinanceChange(i, e)}
@@ -105,6 +106,7 @@ const EditForm = (props) => {
                 className="form-control"
                 type="number"
                 name="exp"
+                step="any"
                 defaultValue={field.exp}
                 placeholder="Expenses"
                 onChange={(e) => handleFinanceChange(i, e)}
@@ -115,6 +117,7 @@ const EditForm = (props) => {
                 className="form-control"
                 type="number"
                 name="assets"
+                step="any"
                 defaultValue={field.assets}
                 placeholder="Assets Valuation"
                 onChange={(e) => handleFinanceChange(i, e)}
@@ -124,6 +127,7 @@ const EditForm = (props) => {
               <input
                 className="form-control"
                 type="number"
+                step="any"
                 name="lib"
                 defaultValue={field.lib}
                 placeholder="Liabilities Amount"
@@ -133,7 +137,8 @@ const EditForm = (props) => {
               <div className="field form-group col-md-2">
               <input
                 className="form-control"
-                type="text"
+                type="number"
+                step="any"
                 name="eq"
                 defaultValue={field.eq}
                 placeholder="Equity Valuation"

@@ -4,6 +4,7 @@ const useForm = (props, callback) => {
 
   let ed = props.edit[0]
   let initFin = ed.finances
+  console.log("This is initFin: ", initFin)
 
   const [values, setValues] = useState(ed)
   const [fields, setFields] = useState(initFin);
