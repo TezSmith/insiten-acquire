@@ -8,7 +8,6 @@ import { getCompanyDetails } from '../reducers/company';
 
 
 const CompanyDetails = (props) => {
-  debugger
  const { deleteCompany, removeCompany, addCompany, portfolio, history } = props
  const c = props.details[0]
 
