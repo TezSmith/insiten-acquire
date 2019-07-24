@@ -2,18 +2,17 @@
 
 An app prototype for investors who are interested in viewing / tracking the financial data potential acquisitions.
 
-### Built with
+### Built With
 React, Redux & React Router.
 
 ### Installation
 To install this app, clone this repository and run these commands in your terminal: npm install, npm start
 
-Creator
-Montez Smith 
+### License
 
 MIT License
 
-Copyright (c) 2019
+Creator Montez Smith. Copyright (c) 2019
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
