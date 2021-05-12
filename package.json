@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "faker": "^4.1.0",
     "history": "^4.9.0",
     "prop-types": "^15.7.2",
